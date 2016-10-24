@@ -5,7 +5,6 @@
  */
 package plsolver.view;
 
-import plsolver.controller.ControlSolverContainer;
 import plsolver.controller.ControlWelcomePanel;
 
 /**
@@ -23,6 +22,7 @@ public class WelcomePanel extends javax.swing.JPanel {
     }
     public void myinitComponents(){
         ControlWelcomePanel cwelcomepanel = new ControlWelcomePanel(this);
+        welcomeBannerIcon.addMouseListener(cwelcomepanel);
     }
 
     /**
@@ -34,19 +34,80 @@ public class WelcomePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+        welcomePanelContainer = new javax.swing.JPanel();
+        welcomePanel = new javax.swing.JPanel();
+        welcomeBannerIcon = new javax.swing.JLabel();
+        fieldsRequerimentPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setMaximumSize(new java.awt.Dimension(810, 410));
+        setMinimumSize(new java.awt.Dimension(810, 410));
+        setLayout(new java.awt.CardLayout());
+
+        welcomePanelContainer.setLayout(new java.awt.CardLayout());
+
+        welcomeBannerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plsolver/view/images/PLSOLVER.png"))); // NOI18N
+        welcomeBannerIcon.setToolTipText("");
+        welcomeBannerIcon.setName("welcomeBannerIcon"); // NOI18N
+        welcomeBannerIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                welcomeBannerIconMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout welcomePanelLayout = new javax.swing.GroupLayout(welcomePanel);
+        welcomePanel.setLayout(welcomePanelLayout);
+        welcomePanelLayout.setHorizontalGroup(
+            welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(welcomeBannerIcon)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+        welcomePanelLayout.setVerticalGroup(
+            welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomePanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(welcomeBannerIcon)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        welcomePanelContainer.add(welcomePanel, "welcomePanel");
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout fieldsRequerimentPanelLayout = new javax.swing.GroupLayout(fieldsRequerimentPanel);
+        fieldsRequerimentPanel.setLayout(fieldsRequerimentPanelLayout);
+        fieldsRequerimentPanelLayout.setHorizontalGroup(
+            fieldsRequerimentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fieldsRequerimentPanelLayout.createSequentialGroup()
+                .addGap(386, 386, 386)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fieldsRequerimentPanelLayout.setVerticalGroup(
+            fieldsRequerimentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fieldsRequerimentPanelLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jLabel1)
+                .addContainerGap(275, Short.MAX_VALUE))
+        );
+
+        welcomePanelContainer.add(fieldsRequerimentPanel, "fieldsRequerimentPanel");
+
+        add(welcomePanelContainer, "welcomePanelContainer");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void welcomeBannerIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_welcomeBannerIconMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_welcomeBannerIconMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel fieldsRequerimentPanel;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel welcomeBannerIcon;
+    public javax.swing.JPanel welcomePanel;
+    public javax.swing.JPanel welcomePanelContainer;
     // End of variables declaration//GEN-END:variables
 }

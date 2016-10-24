@@ -21,7 +21,7 @@ public class SolverContanier extends javax.swing.JFrame {
         myinitComponents();
     }
     public void myinitComponents(){
-        ControlSolverContainer controlSolverContainer =new ControlSolverContainer();
+        ControlSolverContainer controlSolverContainer =new ControlSolverContainer(this);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,27 +32,20 @@ public class SolverContanier extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        WelcomePanel = new javax.swing.JPanel();
+        solverContainerPanel = new javax.swing.JPanel();
+        welcomePanel = new plsolver.view.WelcomePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(810, 410));
         setMinimumSize(new java.awt.Dimension(810, 410));
-        setPreferredSize(new java.awt.Dimension(810, 410));
         setResizable(false);
-        getContentPane().setLayout(new java.awt.CardLayout());
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        javax.swing.GroupLayout WelcomePanelLayout = new javax.swing.GroupLayout(WelcomePanel);
-        WelcomePanel.setLayout(WelcomePanelLayout);
-        WelcomePanelLayout.setHorizontalGroup(
-            WelcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
-        );
-        WelcomePanelLayout.setVerticalGroup(
-            WelcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
-        );
+        solverContainerPanel.setMaximumSize(new java.awt.Dimension(810, 410));
+        solverContainerPanel.setLayout(new java.awt.CardLayout());
+        solverContainerPanel.add(welcomePanel, "welcomePanel");
 
-        getContentPane().add(WelcomePanel, "card2");
+        getContentPane().add(solverContainerPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,6 +87,7 @@ public class SolverContanier extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel WelcomePanel;
+    public javax.swing.JPanel solverContainerPanel;
+    private plsolver.view.WelcomePanel welcomePanel;
     // End of variables declaration//GEN-END:variables
 }
