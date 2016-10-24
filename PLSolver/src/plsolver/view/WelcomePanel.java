@@ -38,7 +38,36 @@ public class WelcomePanel extends javax.swing.JPanel {
         welcomePanel = new javax.swing.JPanel();
         welcomeBannerIcon = new javax.swing.JLabel();
         fieldsRequerimentPanel = new javax.swing.JPanel();
+        requerimentTitlePanel = new javax.swing.JPanel();
+        requerimentTitleLabel = new javax.swing.JLabel();
+        requerimentTitleSeparator = new javax.swing.JSeparator();
+        requerimentContainerPanel = new javax.swing.JPanel();
+        requerimentChoosePanel = new javax.swing.JPanel();
+        maxButton = new javax.swing.JLabel();
+        minButton = new javax.swing.JLabel();
+        requerimentIntroducePanel = new javax.swing.JPanel();
+        objectiveFunctionPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        restrictionsPanel = new javax.swing.JPanel();
+        restrictionsTitlePanel = new javax.swing.JPanel();
+        restrictionGridPanel = new javax.swing.JPanel();
+        restriction1panel = new javax.swing.JPanel();
+        restriction2panel = new javax.swing.JPanel();
+        restriction3panel = new javax.swing.JPanel();
+        restriction4panel = new javax.swing.JPanel();
+        restriction5panel = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(810, 410));
         setMinimumSize(new java.awt.Dimension(810, 410));
@@ -67,31 +96,260 @@ public class WelcomePanel extends javax.swing.JPanel {
         welcomePanelLayout.setVerticalGroup(
             welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 1, Short.MAX_VALUE)
                 .addComponent(welcomeBannerIcon)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         welcomePanelContainer.add(welcomePanel, "welcomePanel");
 
-        jLabel1.setText("jLabel1");
+        fieldsRequerimentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        fieldsRequerimentPanel.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout fieldsRequerimentPanelLayout = new javax.swing.GroupLayout(fieldsRequerimentPanel);
-        fieldsRequerimentPanel.setLayout(fieldsRequerimentPanelLayout);
-        fieldsRequerimentPanelLayout.setHorizontalGroup(
-            fieldsRequerimentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fieldsRequerimentPanelLayout.createSequentialGroup()
-                .addGap(386, 386, 386)
-                .addComponent(jLabel1)
+        requerimentTitlePanel.setBackground(new java.awt.Color(255, 255, 255));
+        requerimentTitlePanel.setMaximumSize(new java.awt.Dimension(810, 80));
+        requerimentTitlePanel.setMinimumSize(new java.awt.Dimension(810, 80));
+
+        requerimentTitleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        requerimentTitleLabel.setText("¿Qué problema lineal tienes?");
+
+        javax.swing.GroupLayout requerimentTitlePanelLayout = new javax.swing.GroupLayout(requerimentTitlePanel);
+        requerimentTitlePanel.setLayout(requerimentTitlePanelLayout);
+        requerimentTitlePanelLayout.setHorizontalGroup(
+            requerimentTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, requerimentTitlePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(requerimentTitleSeparator)
+                .addContainerGap())
+            .addGroup(requerimentTitlePanelLayout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(requerimentTitleLabel)
+                .addContainerGap(263, Short.MAX_VALUE))
+        );
+        requerimentTitlePanelLayout.setVerticalGroup(
+            requerimentTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(requerimentTitlePanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(requerimentTitleLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(requerimentTitleSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        fieldsRequerimentPanel.add(requerimentTitlePanel, java.awt.BorderLayout.PAGE_START);
+
+        requerimentContainerPanel.setMaximumSize(new java.awt.Dimension(810, 330));
+        requerimentContainerPanel.setMinimumSize(new java.awt.Dimension(810, 330));
+        requerimentContainerPanel.setLayout(new java.awt.BorderLayout());
+
+        requerimentChoosePanel.setBackground(new java.awt.Color(255, 255, 255));
+        requerimentChoosePanel.setLayout(new java.awt.GridLayout(2, 0));
+
+        maxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plsolver/view/images/Max.png"))); // NOI18N
+        requerimentChoosePanel.add(maxButton);
+
+        minButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plsolver/view/images/Min.png"))); // NOI18N
+        requerimentChoosePanel.add(minButton);
+
+        requerimentContainerPanel.add(requerimentChoosePanel, java.awt.BorderLayout.LINE_START);
+
+        requerimentIntroducePanel.setBackground(new java.awt.Color(255, 255, 255));
+        requerimentIntroducePanel.setMaximumSize(new java.awt.Dimension(660, 330));
+        requerimentIntroducePanel.setMinimumSize(new java.awt.Dimension(660, 330));
+        requerimentIntroducePanel.setLayout(new java.awt.BorderLayout());
+
+        objectiveFunctionPanel.setBackground(new java.awt.Color(255, 255, 255));
+        objectiveFunctionPanel.setMaximumSize(new java.awt.Dimension(660, 100));
+        objectiveFunctionPanel.setMinimumSize(new java.awt.Dimension(660, 100));
+        objectiveFunctionPanel.setPreferredSize(new java.awt.Dimension(660, 100));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Función Objetivo");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("Z= ");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("A");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("B");
+
+        jTextField2.setText("0");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "_" }));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("C");
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "_" }));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "_" }));
+
+        jTextField4.setText("0");
+
+        jTextField5.setText("0");
+
+        jTextField6.setText("0");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("D");
+
+        javax.swing.GroupLayout objectiveFunctionPanelLayout = new javax.swing.GroupLayout(objectiveFunctionPanel);
+        objectiveFunctionPanel.setLayout(objectiveFunctionPanelLayout);
+        objectiveFunctionPanelLayout.setHorizontalGroup(
+            objectiveFunctionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(objectiveFunctionPanelLayout.createSequentialGroup()
+                .addGroup(objectiveFunctionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(objectiveFunctionPanelLayout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(jLabel1))
+                    .addGroup(objectiveFunctionPanelLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        fieldsRequerimentPanelLayout.setVerticalGroup(
-            fieldsRequerimentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fieldsRequerimentPanelLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
+        objectiveFunctionPanelLayout.setVerticalGroup(
+            objectiveFunctionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(objectiveFunctionPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(objectiveFunctionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(objectiveFunctionPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(objectiveFunctionPanelLayout.createSequentialGroup()
+                        .addGroup(objectiveFunctionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(24, 24, 24))))
         );
+
+        requerimentIntroducePanel.add(objectiveFunctionPanel, java.awt.BorderLayout.PAGE_START);
+
+        restrictionsPanel.setMaximumSize(new java.awt.Dimension(660, 230));
+        restrictionsPanel.setMinimumSize(new java.awt.Dimension(660, 230));
+        restrictionsPanel.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout restrictionsTitlePanelLayout = new javax.swing.GroupLayout(restrictionsTitlePanel);
+        restrictionsTitlePanel.setLayout(restrictionsTitlePanelLayout);
+        restrictionsTitlePanelLayout.setHorizontalGroup(
+            restrictionsTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 662, Short.MAX_VALUE)
+        );
+        restrictionsTitlePanelLayout.setVerticalGroup(
+            restrictionsTitlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        restrictionsPanel.add(restrictionsTitlePanel, java.awt.BorderLayout.PAGE_START);
+
+        restrictionGridPanel.setLayout(new java.awt.GridLayout(5, 0));
+
+        javax.swing.GroupLayout restriction1panelLayout = new javax.swing.GroupLayout(restriction1panel);
+        restriction1panel.setLayout(restriction1panelLayout);
+        restriction1panelLayout.setHorizontalGroup(
+            restriction1panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 662, Short.MAX_VALUE)
+        );
+        restriction1panelLayout.setVerticalGroup(
+            restriction1panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 36, Short.MAX_VALUE)
+        );
+
+        restrictionGridPanel.add(restriction1panel);
+
+        javax.swing.GroupLayout restriction2panelLayout = new javax.swing.GroupLayout(restriction2panel);
+        restriction2panel.setLayout(restriction2panelLayout);
+        restriction2panelLayout.setHorizontalGroup(
+            restriction2panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 662, Short.MAX_VALUE)
+        );
+        restriction2panelLayout.setVerticalGroup(
+            restriction2panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 36, Short.MAX_VALUE)
+        );
+
+        restrictionGridPanel.add(restriction2panel);
+
+        javax.swing.GroupLayout restriction3panelLayout = new javax.swing.GroupLayout(restriction3panel);
+        restriction3panel.setLayout(restriction3panelLayout);
+        restriction3panelLayout.setHorizontalGroup(
+            restriction3panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 662, Short.MAX_VALUE)
+        );
+        restriction3panelLayout.setVerticalGroup(
+            restriction3panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 36, Short.MAX_VALUE)
+        );
+
+        restrictionGridPanel.add(restriction3panel);
+
+        javax.swing.GroupLayout restriction4panelLayout = new javax.swing.GroupLayout(restriction4panel);
+        restriction4panel.setLayout(restriction4panelLayout);
+        restriction4panelLayout.setHorizontalGroup(
+            restriction4panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 662, Short.MAX_VALUE)
+        );
+        restriction4panelLayout.setVerticalGroup(
+            restriction4panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 36, Short.MAX_VALUE)
+        );
+
+        restrictionGridPanel.add(restriction4panel);
+
+        javax.swing.GroupLayout restriction5panelLayout = new javax.swing.GroupLayout(restriction5panel);
+        restriction5panel.setLayout(restriction5panelLayout);
+        restriction5panelLayout.setHorizontalGroup(
+            restriction5panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 662, Short.MAX_VALUE)
+        );
+        restriction5panelLayout.setVerticalGroup(
+            restriction5panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 36, Short.MAX_VALUE)
+        );
+
+        restrictionGridPanel.add(restriction5panel);
+
+        restrictionsPanel.add(restrictionGridPanel, java.awt.BorderLayout.CENTER);
+
+        requerimentIntroducePanel.add(restrictionsPanel, java.awt.BorderLayout.CENTER);
+
+        requerimentContainerPanel.add(requerimentIntroducePanel, java.awt.BorderLayout.CENTER);
+
+        fieldsRequerimentPanel.add(requerimentContainerPanel, java.awt.BorderLayout.CENTER);
 
         welcomePanelContainer.add(fieldsRequerimentPanel, "fieldsRequerimentPanel");
 
@@ -105,7 +363,36 @@ public class WelcomePanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel fieldsRequerimentPanel;
+    public javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> jComboBox3;
+    public javax.swing.JComboBox<String> jComboBox4;
     public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField jTextField6;
+    public javax.swing.JLabel maxButton;
+    public javax.swing.JLabel minButton;
+    public javax.swing.JPanel objectiveFunctionPanel;
+    public javax.swing.JPanel requerimentChoosePanel;
+    public javax.swing.JPanel requerimentContainerPanel;
+    public javax.swing.JPanel requerimentIntroducePanel;
+    public javax.swing.JLabel requerimentTitleLabel;
+    public javax.swing.JPanel requerimentTitlePanel;
+    public javax.swing.JSeparator requerimentTitleSeparator;
+    public javax.swing.JPanel restriction1panel;
+    public javax.swing.JPanel restriction2panel;
+    public javax.swing.JPanel restriction3panel;
+    public javax.swing.JPanel restriction4panel;
+    public javax.swing.JPanel restriction5panel;
+    public javax.swing.JPanel restrictionGridPanel;
+    public javax.swing.JPanel restrictionsPanel;
+    public javax.swing.JPanel restrictionsTitlePanel;
     public javax.swing.JLabel welcomeBannerIcon;
     public javax.swing.JPanel welcomePanel;
     public javax.swing.JPanel welcomePanelContainer;

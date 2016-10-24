@@ -26,7 +26,6 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
     public void mouseClicked(MouseEvent e) {
         switch(e.getComponent().getName()){
             case "welcomeBannerIcon":
-                System.out.println("si entro 2");
                 CardLayout welcomeLayout = (CardLayout) panel.welcomePanelContainer.getLayout();
                 welcomeLayout.show(panel.welcomePanelContainer, "fieldsRequerimentPanel");
             break;
