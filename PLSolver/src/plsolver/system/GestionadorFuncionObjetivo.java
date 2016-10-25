@@ -13,14 +13,16 @@ public class GestionadorFuncionObjetivo {
     public FuncionObjetivo crearFuncionObjetivo(String funcion){
         System.out.println(funcion);
         String error=validarFuncionObjetivo(funcion);
+        if(error==null){
+            return null;
+        }
         if(error.equals("ok")){
             System.out.println("no esta vacia");
             FuncionObjetivo fo=new FuncionObjetivo(listaVariables.size());
             llenarFuncionObjetivo(fo);
             return fo;
-        }else{
-            return null;
         }
+        return null;
     }
 
     public String validarFuncionObjetivo(String funcion){
@@ -67,7 +69,7 @@ public class GestionadorFuncionObjetivo {
                 }
             }
         }
-        if(ls.size()>=1){
+        if(ls.size()>=1&&lv.size()>=2){
             return 1;
         }else{
             return 0;

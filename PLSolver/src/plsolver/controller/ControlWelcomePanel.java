@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import plsolver.system.GestionadorFuncionObjetivo;
 import plsolver.view.WelcomePanel;
 
@@ -23,7 +24,11 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
         switch(e.getActionCommand()){
             case "verifyObjectiveFunction":
                 GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
-                gfo.crearFuncionObjetivo(panel.objectiveFunctionFiled.getText());
+                if(gfo.crearFuncionObjetivo(panel.objectiveFunctionFiled.getText())==null){
+                    JOptionPane.showMessageDialog(null,"No se pudo crear la función objetivo","Error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Funcion Objetivo Creada","OK",JOptionPane.INFORMATION_MESSAGE);
+                }
             break;
         }
     }
