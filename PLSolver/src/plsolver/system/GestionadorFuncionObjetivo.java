@@ -13,9 +13,11 @@ public class GestionadorFuncionObjetivo {
     public FuncionObjetivo crearFuncionObjetivo(String funcion){
         System.out.println(funcion);
         if(validarFuncionObjetivo(funcion).equals("ok")){
-            
+            System.out.println("no esta vacia");
+            return fo;
+        }else{
+            return null;
         }
-        return fo;
     }
 
     public String validarFuncionObjetivo(String funcion){
@@ -23,68 +25,50 @@ public class GestionadorFuncionObjetivo {
         if(funcion.isEmpty()){
             return "El campo no puede estar vacio";
         }else{
-            separarTerminosDeFuncionObjetivo(funcion);
-            return "ok";
+            if(separarTerminosDeFuncionObjetivo(funcion)==1){
+                return "ok";
+            }else{
+                return null;
+            }
         }
     }
-    public ArrayList obtenerListaCoeficientes(String funcion){
-        ArrayList<String> listaCoeficientes = new ArrayList<String>();
-        StringTokenizer st = new StringTokenizer(funcion,"+-",true);
-        String termino=null;
+    public int separarTerminosDeFuncionObjetivo(String funcion){
+        ArrayList<String> ls = new ArrayList<>();
+        ArrayList<String> lc = new ArrayList<>();
+        ArrayList<String> lv = new ArrayList<>();
+        StringTokenizer st = new StringTokenizer(funcion,"+-",true);//separamos signos de los terminos
+        String aux=null;
         while (st.hasMoreTokens()) {
-            termino=st.nextToken();
-            if(!termino.equals("+")||!termino.equals("-")){
-                //es un termino
-                StringTokenizer st2 = new StringTokenizer(funcion,"+-",true);
-                String coeficiente=null;
+            aux=st.nextToken();
+            if(aux.equals("+")||aux.equals("-")){
+                ls.add(aux);
+                //System.out.println(aux+"es un signo");
+                this.listaSignos=ls;
+            }else{
+                //es termino
+                StringTokenizer st2 = new StringTokenizer(aux,"abcdefghijklmnopqrstuvwxyz",true);//separamos coeficientes de variables
+                String aux2=null;
                 while (st2.hasMoreTokens()) {
-                    coeficiente=st.nextToken();
-                    if(isNumeric(coeficiente)==true){
+                    aux2=st2.nextToken();
+                    if(isNumeric(aux2)){
                         //es coeficiente
-                        listaCoeficientes.add(coeficiente);
-                    }
-                }
-            }
-        }
-        return listaCoeficientes;
-    }
-    public ArrayList obtenerListaVariables(String funcion){
-        ArrayList<String> listaVariables = new ArrayList<String>();
-        StringTokenizer st = new StringTokenizer(funcion,"+-",true);
-        String termino=null;
-        while (st.hasMoreTokens()) {
-            termino=st.nextToken();
-            if(!termino.equals("+")||!termino.equals("-")){
-                //es un termino
-                StringTokenizer st2 = new StringTokenizer(funcion,"+-",true);
-                String variable=null;
-                while (st2.hasMoreTokens()) {
-                    variable=st.nextToken();
-                    if(isNumeric(variable)==false){
+                        //System.out.println(aux2+"es un coeficiente");
+                        lc.add(aux2);
+                        this.listaCoeficientes=lc;
+                    }else{
                         //es variable
-                        listaVariables.add(variable);
+                        //System.out.println(aux2+"es unavariable");
+                        lv.add(aux2);
+                        this.listaVariables=lv;
                     }
                 }
             }
         }
-        return listaCoeficientes;
-    }
-    public ArrayList obtenerListaSignos(String funcion){
-        ArrayList<String> listaSignos = new ArrayList<String>();
-        StringTokenizer st = new StringTokenizer(funcion,"+-",true);
-        String termino=null;
-        while (st.hasMoreTokens()) {
-            termino=st.nextToken();
-            if(termino.equals("+")||termino.equals("-")){
-                listaSignos.add(termino);
-            }
+        if(ls.size()>=1){
+            return 1;
+        }else{
+            return 0;
         }
-        return listaSignos;
-    }
-    public void separarTerminosDeFuncionObjetivo(String funcion){
-        this.listaCoeficientes=obtenerListaCoeficientes(funcion);
-        this.listaVariables=obtenerListaVariables(funcion);
-        this.listaSignos=obtenerListaSignos(funcion);
     }
     public static boolean isNumeric(String str) {
         return (str.matches("[+-]?\\d*(\\.\\d+)?") && str.equals("")==false);
