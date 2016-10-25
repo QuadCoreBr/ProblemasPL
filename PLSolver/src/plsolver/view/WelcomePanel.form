@@ -423,15 +423,47 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="662" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                          <Component id="restriction1Label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="restriction1Field" min="-2" pref="362" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resttriction1Button" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="102" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="restriction1Label" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="restriction1Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="resttriction1Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="restriction1Label">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Tahoma" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="1)"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="restriction1Field">
+                                  <Properties>
+                                    <Property name="toolTipText" type="java.lang.String" value="a+b+c+d&gt;1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="resttriction1Button">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Agregar"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="restriction2panel">
                               <Properties>
@@ -443,15 +475,47 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="662" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                          <Component id="restriction2Label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="restriction2Field" min="-2" pref="362" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resttriction2Button" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="102" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="restriction2Label" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="restriction2Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="resttriction2Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="restriction2Label">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Tahoma" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="2)"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="restriction2Field">
+                                  <Properties>
+                                    <Property name="toolTipText" type="java.lang.String" value="a+b+c+d&gt;1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="resttriction2Button">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Agregar"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="restriction3panel">
                               <Properties>
@@ -463,15 +527,47 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="662" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                          <Component id="restriction3Label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="restriction3Field" min="-2" pref="362" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resttriction3Button" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="102" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="restriction3Label" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="restriction3Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="resttriction3Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="restriction3Label">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Tahoma" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="3)"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="restriction3Field">
+                                  <Properties>
+                                    <Property name="toolTipText" type="java.lang.String" value="a+b+c+d&gt;1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="resttriction3Button">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Agregar"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="restriction4panel">
                               <Properties>
@@ -483,15 +579,47 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="662" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                          <Component id="restriction4Label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="restriction4Field" min="-2" pref="362" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resttriction4Button" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="102" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="restriction4Label" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="restriction4Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="resttriction4Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="restriction4Label">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Tahoma" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="4)"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="restriction4Field">
+                                  <Properties>
+                                    <Property name="toolTipText" type="java.lang.String" value="a+b+c+d&gt;1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="resttriction4Button">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Agregar"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="restriction5panel">
                               <Properties>
@@ -503,15 +631,47 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="662" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                          <Component id="restriction5Label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="restriction5Field" min="-2" pref="362" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="resttriction5Button" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="102" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="restriction5Label" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="restriction5Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="resttriction5Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="restriction5Label">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Tahoma" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="5)"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="restriction5Field">
+                                  <Properties>
+                                    <Property name="toolTipText" type="java.lang.String" value="a+b+c+d&gt;1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="resttriction5Button">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Agregar"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
                             </Container>
                           </SubComponents>
                         </Container>

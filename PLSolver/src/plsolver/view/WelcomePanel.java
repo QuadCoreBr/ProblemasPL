@@ -58,10 +58,25 @@ public class WelcomePanel extends javax.swing.JPanel {
         restrictionsTitleSeparator = new javax.swing.JSeparator();
         restrictionGridPanel = new javax.swing.JPanel();
         restriction1panel = new javax.swing.JPanel();
+        restriction1Label = new javax.swing.JLabel();
+        restriction1Field = new javax.swing.JTextField();
+        resttriction1Button = new javax.swing.JButton();
         restriction2panel = new javax.swing.JPanel();
+        restriction2Label = new javax.swing.JLabel();
+        restriction2Field = new javax.swing.JTextField();
+        resttriction2Button = new javax.swing.JButton();
         restriction3panel = new javax.swing.JPanel();
+        restriction3Label = new javax.swing.JLabel();
+        restriction3Field = new javax.swing.JTextField();
+        resttriction3Button = new javax.swing.JButton();
         restriction4panel = new javax.swing.JPanel();
+        restriction4Label = new javax.swing.JLabel();
+        restriction4Field = new javax.swing.JTextField();
+        resttriction4Button = new javax.swing.JButton();
         restriction5panel = new javax.swing.JPanel();
+        restriction5Label = new javax.swing.JLabel();
+        restriction5Field = new javax.swing.JTextField();
+        resttriction5Button = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(810, 410));
         setMinimumSize(new java.awt.Dimension(810, 410));
@@ -247,75 +262,160 @@ public class WelcomePanel extends javax.swing.JPanel {
 
         restriction1panel.setBackground(new java.awt.Color(255, 255, 255));
 
+        restriction1Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        restriction1Label.setText("1)");
+
+        restriction1Field.setToolTipText("a+b+c+d>1");
+
+        resttriction1Button.setText("Agregar");
+
         javax.swing.GroupLayout restriction1panelLayout = new javax.swing.GroupLayout(restriction1panel);
         restriction1panel.setLayout(restriction1panelLayout);
         restriction1panelLayout.setHorizontalGroup(
             restriction1panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(restriction1panelLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(restriction1Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(restriction1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resttriction1Button)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         restriction1panelLayout.setVerticalGroup(
             restriction1panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 36, Short.MAX_VALUE)
+            .addGroup(restriction1panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(restriction1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(restriction1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resttriction1Button))
         );
 
         restrictionGridPanel.add(restriction1panel);
 
         restriction2panel.setBackground(new java.awt.Color(255, 255, 255));
 
+        restriction2Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        restriction2Label.setText("2)");
+
+        restriction2Field.setToolTipText("a+b+c+d>1");
+
+        resttriction2Button.setText("Agregar");
+
         javax.swing.GroupLayout restriction2panelLayout = new javax.swing.GroupLayout(restriction2panel);
         restriction2panel.setLayout(restriction2panelLayout);
         restriction2panelLayout.setHorizontalGroup(
             restriction2panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(restriction2panelLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(restriction2Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(restriction2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resttriction2Button)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         restriction2panelLayout.setVerticalGroup(
             restriction2panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 36, Short.MAX_VALUE)
+            .addGroup(restriction2panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(restriction2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(restriction2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resttriction2Button))
         );
 
         restrictionGridPanel.add(restriction2panel);
 
         restriction3panel.setBackground(new java.awt.Color(255, 255, 255));
 
+        restriction3Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        restriction3Label.setText("3)");
+
+        restriction3Field.setToolTipText("a+b+c+d>1");
+
+        resttriction3Button.setText("Agregar");
+
         javax.swing.GroupLayout restriction3panelLayout = new javax.swing.GroupLayout(restriction3panel);
         restriction3panel.setLayout(restriction3panelLayout);
         restriction3panelLayout.setHorizontalGroup(
             restriction3panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(restriction3panelLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(restriction3Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(restriction3Field, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resttriction3Button)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         restriction3panelLayout.setVerticalGroup(
             restriction3panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 36, Short.MAX_VALUE)
+            .addGroup(restriction3panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(restriction3Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(restriction3Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resttriction3Button))
         );
 
         restrictionGridPanel.add(restriction3panel);
 
         restriction4panel.setBackground(new java.awt.Color(255, 255, 255));
 
+        restriction4Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        restriction4Label.setText("4)");
+
+        restriction4Field.setToolTipText("a+b+c+d>1");
+
+        resttriction4Button.setText("Agregar");
+
         javax.swing.GroupLayout restriction4panelLayout = new javax.swing.GroupLayout(restriction4panel);
         restriction4panel.setLayout(restriction4panelLayout);
         restriction4panelLayout.setHorizontalGroup(
             restriction4panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(restriction4panelLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(restriction4Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(restriction4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resttriction4Button)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         restriction4panelLayout.setVerticalGroup(
             restriction4panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 36, Short.MAX_VALUE)
+            .addGroup(restriction4panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(restriction4Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(restriction4Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resttriction4Button))
         );
 
         restrictionGridPanel.add(restriction4panel);
 
         restriction5panel.setBackground(new java.awt.Color(255, 255, 255));
 
+        restriction5Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        restriction5Label.setText("5)");
+
+        restriction5Field.setToolTipText("a+b+c+d>1");
+
+        resttriction5Button.setText("Agregar");
+
         javax.swing.GroupLayout restriction5panelLayout = new javax.swing.GroupLayout(restriction5panel);
         restriction5panel.setLayout(restriction5panelLayout);
         restriction5panelLayout.setHorizontalGroup(
             restriction5panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(restriction5panelLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(restriction5Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(restriction5Field, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resttriction5Button)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         restriction5panelLayout.setVerticalGroup(
             restriction5panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 36, Short.MAX_VALUE)
+            .addGroup(restriction5panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(restriction5Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(restriction5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resttriction5Button))
         );
 
         restrictionGridPanel.add(restriction5panel);
@@ -353,15 +453,30 @@ public class WelcomePanel extends javax.swing.JPanel {
     public javax.swing.JPanel requerimentIntroducePanel;
     public javax.swing.JLabel requerimentTitleLabel;
     public javax.swing.JPanel requerimentTitlePanel;
+    public javax.swing.JTextField restriction1Field;
+    public javax.swing.JLabel restriction1Label;
     public javax.swing.JPanel restriction1panel;
+    public javax.swing.JTextField restriction2Field;
+    public javax.swing.JLabel restriction2Label;
     public javax.swing.JPanel restriction2panel;
+    public javax.swing.JTextField restriction3Field;
+    public javax.swing.JLabel restriction3Label;
     public javax.swing.JPanel restriction3panel;
+    public javax.swing.JTextField restriction4Field;
+    public javax.swing.JLabel restriction4Label;
     public javax.swing.JPanel restriction4panel;
+    public javax.swing.JTextField restriction5Field;
+    public javax.swing.JLabel restriction5Label;
     public javax.swing.JPanel restriction5panel;
     public javax.swing.JPanel restrictionGridPanel;
     public javax.swing.JPanel restrictionsPanel;
     public javax.swing.JPanel restrictionsTitlePanel;
     public javax.swing.JSeparator restrictionsTitleSeparator;
+    public javax.swing.JButton resttriction1Button;
+    public javax.swing.JButton resttriction2Button;
+    public javax.swing.JButton resttriction3Button;
+    public javax.swing.JButton resttriction4Button;
+    public javax.swing.JButton resttriction5Button;
     public javax.swing.JButton verifyObjectiveFunction;
     public javax.swing.JLabel welcomeBannerIcon;
     public javax.swing.JPanel welcomePanel;

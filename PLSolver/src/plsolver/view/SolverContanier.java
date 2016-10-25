@@ -36,8 +36,10 @@ public class SolverContanier extends javax.swing.JFrame {
         welcomePanel = new plsolver.view.WelcomePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PLSolver");
         setMaximumSize(new java.awt.Dimension(810, 410));
         setMinimumSize(new java.awt.Dimension(810, 410));
+        setName("SolverContainer"); // NOI18N
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
