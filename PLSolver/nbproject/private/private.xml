@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Z:/JDIAZRDGZ/Data/Github/ProblemasPL/PLSolver/src/plsolver/system/AnalizadorCadenas.java</file>
             <file>file:/Z:/JDIAZRDGZ/Data/Github/ProblemasPL/PLSolver/src/plsolver/view/WelcomePanel.java</file>
             <file>file:/Z:/JDIAZRDGZ/Data/Github/ProblemasPL/PLSolver/src/plsolver/controller/ControlWelcomePanel.java</file>
             <file>file:/Z:/JDIAZRDGZ/Data/Github/ProblemasPL/PLSolver/src/plsolver/view/SolverContanier.java</file>
+            <file>file:/Z:/JDIAZRDGZ/Data/Github/ProblemasPL/PLSolver/src/plsolver/system/FuncionObjetivo.java</file>
+            <file>file:/Z:/JDIAZRDGZ/Data/Github/ProblemasPL/PLSolver/src/plsolver/system/GestionadorFuncionObjetivo.java</file>
         </group>
     </open-files>
 </project-private>

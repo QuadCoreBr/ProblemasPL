@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import plsolver.system.GestionadorFuncionObjetivo;
 import plsolver.view.WelcomePanel;
 
 public class ControlWelcomePanel implements ActionListener,MouseListener{
@@ -19,7 +20,12 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        switch(e.getActionCommand()){
+            case "verifyObjectiveFunction":
+                GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
+                gfo.crearFuncionObjetivo(panel.objectiveFunctionFiled.getText());
+            break;
+        }
     }
 
     @Override
