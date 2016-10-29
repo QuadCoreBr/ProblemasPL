@@ -8,7 +8,7 @@ public class GestionadorRestriccion {
     private ArrayList<String> listaVariables;
     private ArrayList<String> listaCoeficientes;
     private ArrayList<String> listaSignos;
-    private ArrayList<String> desigualdad;
+    private String desigualdad;
     
     public Restriccion CrearRestriccion(String funcion){
         System.out.println(funcion);
@@ -17,9 +17,8 @@ public class GestionadorRestriccion {
             return null;
         }
         if(error.equals("ok")){
-            System.out.println("no esta vacia");
             Restriccion r=new Restriccion(listaVariables.size());
-            //llenarRestriccion(fo);
+            llenarRestriccion(r);
             return r;
         }
         return null;
@@ -44,88 +43,91 @@ public class GestionadorRestriccion {
         ArrayList<String> ls = new ArrayList<>();
         ArrayList<String> lc = new ArrayList<>();
         ArrayList<String> lv = new ArrayList<>();
-        ArrayList<String> des = new ArrayList<>();
-        StringTokenizer st0 = new StringTokenizer(funcion,"<>=",true);//separamos signos de los terminos
-        String aux0=null;
-        while (st0.hasMoreTokens()) {
-            aux0=st0.nextToken();
-            if(aux0.equals("<")||aux0.equals(">")||aux0.equals("=")){
-                ls.add(aux0);
-                System.out.println(aux0+"es un signo");
-                this.desigualdad=des;
-            }
-        }
-        if(des.size()==0){
-            return -1;
-        }
+        String des="";
         StringTokenizer st = new StringTokenizer(funcion,"+-",true);//separamos signos de los terminos
         String aux=null;
         while (st.hasMoreTokens()) {
             aux=st.nextToken();
             if(aux.equals("+")||aux.equals("-")){
                 ls.add(aux);
-                System.out.println(aux+"es un signo");
+                //System.out.println(aux+"es un signo");
                 this.listaSignos=ls;
             }else{
                 //es termino
-                StringTokenizer st2 = new StringTokenizer(aux,"abcdefghijklmnopqrstuvwxyz",true);//separamos coeficientes de variables
-                String aux2=null;
-                while (st2.hasMoreTokens()) {
-                    aux2=st2.nextToken();
-                    if(isNumeric(aux2)){
-                        //es coeficiente
-                        System.out.println(aux2+"es un coeficiente");
-                        lc.add(aux2);
-                        this.listaCoeficientes=lc;
-                    }else{
-                        //es variable
-                        System.out.println(aux2+"es unavariable");
-                        lv.add(aux2);
-                        this.listaVariables=lv;
+                StringTokenizer st1 = new StringTokenizer(aux,"<>=",true);//separamos signos de los terminos
+                String aux1=null;
+                while (st1.hasMoreTokens()) {
+                    aux1=st1.nextToken();
+                    if(aux1.equals("<")||aux1.equals(">")||aux1.equals("=")){//es signo
+                        des=des+aux1;
+                        //System.out.println(aux1+"es un signo de desigualdad");
+                        this.desigualdad=des;
+                    }else{// es variable o coeficiente
+                        StringTokenizer st2 = new StringTokenizer(aux1,"abcdefghijklmnopqrstuvwxyz",true);//separamos coeficientes de variables
+                        String aux2=null;
+                        while (st2.hasMoreTokens()) {
+                            aux2=st2.nextToken();
+                            if(isNumeric(aux2)){
+                                //es coeficiente
+                                //System.out.println(aux2+"es un coeficiente");
+                                lc.add(aux2);
+                                this.listaCoeficientes=lc;
+                            }else{// es variable
+                                //System.out.println(aux2+"es una variable");
+                                lv.add(aux2);
+                                this.listaVariables=lv;
+                            }
+                        }
                     }
                 }
             }
         }
-        if(ls.size()>=1&&lv.size()>=2){
+        if(ls.size()>=1&&lv.size()>=2&&des.length()>=1){
             return 1;
         }else{
             return 0;
         }
     }
-    public void llenarRestriccion(FuncionObjetivo fo){
-        switch(fo.getNoVariables()){
+    public void llenarRestriccion(Restriccion r){
+        switch(r.getNoVariables()){
             case 2:
-                fo.setC1(Integer.parseInt(listaCoeficientes.get(0)));
-                fo.setC2(Integer.parseInt(listaCoeficientes.get(1)));
-                fo.setS1(listaSignos.get(0));
-                fo.setV1(listaVariables.get(0));
-                fo.setV2(listaVariables.get(1));
+                r.setC1(Integer.parseInt(listaCoeficientes.get(0)));
+                r.setC2(Integer.parseInt(listaCoeficientes.get(1)));
+                r.setCr(Integer.parseInt(listaCoeficientes.get(2)));
+                r.setS1(listaSignos.get(0));
+                r.setV1(listaVariables.get(0));
+                r.setV2(listaVariables.get(1));
+                r.setDesigualdad(desigualdad);
             break;
             case 3:
-                fo.setC1(Integer.parseInt(listaCoeficientes.get(0)));
-                fo.setC2(Integer.parseInt(listaCoeficientes.get(1)));
-                fo.setC3(Integer.parseInt(listaCoeficientes.get(2)));
-                fo.setS1(listaSignos.get(0));
-                fo.setS2(listaSignos.get(1));
-                fo.setV1(listaVariables.get(0));
-                fo.setV2(listaVariables.get(1));
-                fo.setV2(listaVariables.get(2));
+                r.setC1(Integer.parseInt(listaCoeficientes.get(0)));
+                r.setC2(Integer.parseInt(listaCoeficientes.get(1)));
+                r.setC3(Integer.parseInt(listaCoeficientes.get(2)));
+                r.setCr(Integer.parseInt(listaCoeficientes.get(3)));
+                r.setS1(listaSignos.get(0));
+                r.setS2(listaSignos.get(1));
+                r.setV1(listaVariables.get(0));
+                r.setV2(listaVariables.get(1));
+                r.setV2(listaVariables.get(2));
+                r.setDesigualdad(desigualdad);
             break;
             case 4:
-                fo.setC1(Integer.parseInt(listaCoeficientes.get(0)));
-                fo.setC2(Integer.parseInt(listaCoeficientes.get(1)));
-                fo.setC3(Integer.parseInt(listaCoeficientes.get(2)));
-                fo.setC4(Integer.parseInt(listaCoeficientes.get(3)));
-                fo.setS1(listaSignos.get(0));
-                fo.setS2(listaSignos.get(1));
-                fo.setS3(listaSignos.get(2));
-                fo.setV1(listaVariables.get(0));
-                fo.setV2(listaVariables.get(1));
-                fo.setV2(listaVariables.get(2));
-                fo.setV2(listaVariables.get(3));
+                r.setC1(Integer.parseInt(listaCoeficientes.get(0)));
+                r.setC2(Integer.parseInt(listaCoeficientes.get(1)));
+                r.setC3(Integer.parseInt(listaCoeficientes.get(2)));
+                r.setC4(Integer.parseInt(listaCoeficientes.get(3)));
+                r.setCr(Integer.parseInt(listaCoeficientes.get(4)));
+                r.setS1(listaSignos.get(0));
+                r.setS2(listaSignos.get(1));
+                r.setS3(listaSignos.get(2));
+                r.setV1(listaVariables.get(0));
+                r.setV2(listaVariables.get(1));
+                r.setV2(listaVariables.get(2));
+                r.setV2(listaVariables.get(3));
+                r.setDesigualdad(desigualdad);
             break;
             default:
-                fo=null;
+                r=null;
             break;
         }
     }

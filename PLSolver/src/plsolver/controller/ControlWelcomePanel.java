@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import plsolver.system.GestionadorFuncionObjetivo;
+import plsolver.system.GestionadorRestriccion;
 import plsolver.view.WelcomePanel;
 
 public class ControlWelcomePanel implements ActionListener,MouseListener{
@@ -21,6 +22,7 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        GestionadorRestriccion gr=new GestionadorRestriccion();
         switch(e.getActionCommand()){
             case "verifyObjectiveFunction":
                 GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
@@ -28,6 +30,41 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
                     JOptionPane.showMessageDialog(null,"No se pudo crear la función objetivo","Error",JOptionPane.ERROR_MESSAGE);
                 }else{
                     JOptionPane.showMessageDialog(null,"Funcion Objetivo Creada","OK",JOptionPane.INFORMATION_MESSAGE);
+                }
+            break;
+            case "resttriction1Button":
+                if(gr.CrearRestriccion(panel.restriction1Field.getText())==null){
+                    JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                }
+            break;
+            case "resttriction2Button":
+                if(gr.CrearRestriccion(panel.restriction2Field.getText())==null){
+                    JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                }
+            break;
+            case "resttriction3Button":
+                if(gr.CrearRestriccion(panel.restriction3Field.getText())==null){
+                    JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                }
+            break;
+            case "resttriction4Button":
+                if(gr.CrearRestriccion(panel.restriction4Field.getText())==null){
+                    JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                }
+            break;
+            case "resttriction5Button":
+                if(gr.CrearRestriccion(panel.restriction5Field.getText())==null){
+                    JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
                 }
             break;
         }

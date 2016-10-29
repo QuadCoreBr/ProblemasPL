@@ -24,6 +24,12 @@ public class WelcomePanel extends javax.swing.JPanel {
         ControlWelcomePanel cwelcomepanel = new ControlWelcomePanel(this);
         welcomeBannerIcon.addMouseListener(cwelcomepanel);
         verifyObjectiveFunction.addActionListener(cwelcomepanel);
+        resttriction1Button.addActionListener(cwelcomepanel);
+        resttriction2Button.addActionListener(cwelcomepanel);
+        resttriction3Button.addActionListener(cwelcomepanel);
+        resttriction4Button.addActionListener(cwelcomepanel);
+        resttriction5Button.addActionListener(cwelcomepanel);
+        
     }
 
     /**
@@ -268,6 +274,8 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction1Field.setToolTipText("a+b+c+d>1");
 
         resttriction1Button.setText("Agregar");
+        resttriction1Button.setActionCommand("resttriction1Button");
+        resttriction1Button.setName("resttriction1Button"); // NOI18N
 
         javax.swing.GroupLayout restriction1panelLayout = new javax.swing.GroupLayout(restriction1panel);
         restriction1panel.setLayout(restriction1panelLayout);
@@ -300,6 +308,8 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction2Field.setToolTipText("a+b+c+d>1");
 
         resttriction2Button.setText("Agregar");
+        resttriction2Button.setActionCommand("resttriction2Button");
+        resttriction2Button.setName("resttriction2Button"); // NOI18N
 
         javax.swing.GroupLayout restriction2panelLayout = new javax.swing.GroupLayout(restriction2panel);
         restriction2panel.setLayout(restriction2panelLayout);
@@ -322,6 +332,8 @@ public class WelcomePanel extends javax.swing.JPanel {
                 .addComponent(resttriction2Button))
         );
 
+        resttriction2Button.getAccessibleContext().setAccessibleName("resttriction2Button");
+
         restrictionGridPanel.add(restriction2panel);
 
         restriction3panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -332,6 +344,8 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction3Field.setToolTipText("a+b+c+d>1");
 
         resttriction3Button.setText("Agregar");
+        resttriction3Button.setActionCommand("resttriction3Button");
+        resttriction3Button.setName("resttriction3Button"); // NOI18N
 
         javax.swing.GroupLayout restriction3panelLayout = new javax.swing.GroupLayout(restriction3panel);
         restriction3panel.setLayout(restriction3panelLayout);
@@ -354,6 +368,8 @@ public class WelcomePanel extends javax.swing.JPanel {
                 .addComponent(resttriction3Button))
         );
 
+        resttriction3Button.getAccessibleContext().setAccessibleName("resttriction3Button");
+
         restrictionGridPanel.add(restriction3panel);
 
         restriction4panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -364,6 +380,8 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction4Field.setToolTipText("a+b+c+d>1");
 
         resttriction4Button.setText("Agregar");
+        resttriction4Button.setActionCommand("resttriction4Button");
+        resttriction4Button.setName("resttriction4Button"); // NOI18N
 
         javax.swing.GroupLayout restriction4panelLayout = new javax.swing.GroupLayout(restriction4panel);
         restriction4panel.setLayout(restriction4panelLayout);
@@ -386,6 +404,8 @@ public class WelcomePanel extends javax.swing.JPanel {
                 .addComponent(resttriction4Button))
         );
 
+        resttriction4Button.getAccessibleContext().setAccessibleName("resttriction4Button");
+
         restrictionGridPanel.add(restriction4panel);
 
         restriction5panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -396,6 +416,8 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction5Field.setToolTipText("a+b+c+d>1");
 
         resttriction5Button.setText("Agregar");
+        resttriction5Button.setActionCommand("resttriction5Button");
+        resttriction5Button.setName("resttriction5Button"); // NOI18N
 
         javax.swing.GroupLayout restriction5panelLayout = new javax.swing.GroupLayout(restriction5panel);
         restriction5panel.setLayout(restriction5panelLayout);
@@ -417,6 +439,8 @@ public class WelcomePanel extends javax.swing.JPanel {
                 .addComponent(restriction5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(resttriction5Button))
         );
+
+        resttriction5Button.getAccessibleContext().setAccessibleName("resttriction5Button");
 
         restrictionGridPanel.add(restriction5panel);
 

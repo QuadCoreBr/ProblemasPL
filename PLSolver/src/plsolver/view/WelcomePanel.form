@@ -461,6 +461,8 @@
                                 <Component class="javax.swing.JButton" name="resttriction1Button">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Agregar"/>
+                                    <Property name="actionCommand" type="java.lang.String" value="resttriction1Button"/>
+                                    <Property name="name" type="java.lang.String" value="resttriction1Button" noResource="true"/>
                                   </Properties>
                                 </Component>
                               </SubComponents>
@@ -513,7 +515,12 @@
                                 <Component class="javax.swing.JButton" name="resttriction2Button">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Agregar"/>
+                                    <Property name="actionCommand" type="java.lang.String" value="resttriction2Button"/>
+                                    <Property name="name" type="java.lang.String" value="resttriction2Button" noResource="true"/>
                                   </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="resttriction2Button"/>
+                                  </AccessibilityProperties>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -565,7 +572,12 @@
                                 <Component class="javax.swing.JButton" name="resttriction3Button">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Agregar"/>
+                                    <Property name="actionCommand" type="java.lang.String" value="resttriction3Button"/>
+                                    <Property name="name" type="java.lang.String" value="resttriction3Button" noResource="true"/>
                                   </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="resttriction3Button"/>
+                                  </AccessibilityProperties>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -617,7 +629,12 @@
                                 <Component class="javax.swing.JButton" name="resttriction4Button">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Agregar"/>
+                                    <Property name="actionCommand" type="java.lang.String" value="resttriction4Button"/>
+                                    <Property name="name" type="java.lang.String" value="resttriction4Button" noResource="true"/>
                                   </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="resttriction4Button"/>
+                                  </AccessibilityProperties>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -669,7 +686,12 @@
                                 <Component class="javax.swing.JButton" name="resttriction5Button">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Agregar"/>
+                                    <Property name="actionCommand" type="java.lang.String" value="resttriction5Button"/>
+                                    <Property name="name" type="java.lang.String" value="resttriction5Button" noResource="true"/>
                                   </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="resttriction5Button"/>
+                                  </AccessibilityProperties>
                                 </Component>
                               </SubComponents>
                             </Container>

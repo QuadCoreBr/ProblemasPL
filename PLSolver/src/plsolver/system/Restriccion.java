@@ -10,6 +10,7 @@ public class Restriccion {
     private int c2;
     private int c3;
     private int c4;
+    private int cr;
     private int noVariables;
     private String s1;
     private String s2;
@@ -26,6 +27,7 @@ public class Restriccion {
         c2=0;
         c3=0;
         c4=0;
+        cr=0;
         noVariables=0;
         s1=null;
         s2=null;
@@ -33,30 +35,32 @@ public class Restriccion {
         desigualdad=null;
     }
     
-    public Restriccion(String v1, String v2, int c1, int c2, int noVariables, String s1, String desigualdad) {
+    public Restriccion(String v1, String v2, int c1, int c2, int cr, int noVariables, String s1, String desigualdad) {
         this.v1 = v1;
         this.v2 = v2;
         this.c1 = c1;
         this.c2 = c2;
+        this.cr=cr;
         this.noVariables = noVariables;
         this.s1 = s1;
         this.desigualdad = desigualdad;
     }
 
-    public Restriccion(String v1, String v2, String v3, int c1, int c2, int c3, int noVariables, String s1, String s2, String desigualdad) {
+    public Restriccion(String v1, String v2, String v3, int c1, int c2, int c3,int cr, int noVariables, String s1, String s2, String desigualdad) {
         this.v1 = v1;
         this.v2 = v2;
         this.v3 = v3;
         this.c1 = c1;
         this.c2 = c2;
         this.c3 = c3;
+        this.cr=cr;
         this.noVariables = noVariables;
         this.s1 = s1;
         this.s2 = s2;
         this.desigualdad = desigualdad;
     }
 
-    public Restriccion(String v1, String v2, String v3, String v4, int c1, int c2, int c3, int c4, int noVariables, String s1, String s2, String s3, String desigualdad) {
+    public Restriccion(String v1, String v2, String v3, String v4, int c1, int c2, int c3, int c4, int cr, int noVariables, String s1, String s2, String s3, String desigualdad) {
         this.v1 = v1;
         this.v2 = v2;
         this.v3 = v3;
@@ -65,6 +69,7 @@ public class Restriccion {
         this.c2 = c2;
         this.c3 = c3;
         this.c4 = c4;
+        this.cr=cr;
         this.noVariables = noVariables;
         this.s1 = s1;
         this.s2 = s2;
@@ -114,6 +119,14 @@ public class Restriccion {
 
     public int getC2() {
         return c2;
+    }
+
+    public int getCr() {
+        return cr;
+    }
+
+    public void setCr(int cr) {
+        this.cr = cr;
     }
 
     public void setC2(int c2) {
