@@ -131,6 +131,28 @@ public class GestionadorRestriccion {
             break;
         }
     }
+    public int[] coeficientesTOArray(Restriccion r){
+        int noVariables = r.getNoVariables();
+        int[ ]   coeficientesArray = new  int[noVariables];
+        switch(noVariables){
+            case 2:
+                coeficientesArray[0]=r.getC1();
+                coeficientesArray[1]=r.getC2();
+            break;
+            case 3:
+                coeficientesArray[0]=r.getC1();
+                coeficientesArray[1]=r.getC2();
+                coeficientesArray[2]=r.getC3();
+            break;
+            case 4:
+                coeficientesArray[0]=r.getC1();
+                coeficientesArray[1]=r.getC2();
+                coeficientesArray[2]=r.getC3();
+                coeficientesArray[3]=r.getC4();
+            break;
+        }
+        return coeficientesArray;
+    }
     public static boolean isNumeric(String str) {
         return (str.matches("[+-]?\\d*(\\.\\d+)?") && str.equals("")==false);
     }

@@ -9,12 +9,20 @@ import javax.swing.JOptionPane;
 import plsolver.system.FuncionObjetivo;
 import plsolver.system.GestionadorFuncionObjetivo;
 import plsolver.system.GestionadorRestriccion;
+import plsolver.system.ResolvedorProblema;
 import plsolver.system.ResolverProblema;
 import plsolver.system.Restriccion;
 import plsolver.view.WelcomePanel;
 
 public class ControlWelcomePanel implements ActionListener,MouseListener{
     private WelcomePanel panel;
+    private GestionadorFuncionObjetivo gfo;
+    private FuncionObjetivo fo;
+    private ResolverProblema rp=new ResolverProblema(); // se intuye que al agregar todas las restricciones 
+    //y funciones objetivo se crea ResolverProblema
+    private GestionadorRestriccion gr=new GestionadorRestriccion();
+    private ResolvedorProblema rop;
+    
     public ControlWelcomePanel(WelcomePanel panel){
         this.panel = panel;
         showWelcomePanel();
@@ -25,12 +33,10 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        GestionadorRestriccion gr=new GestionadorRestriccion();
-        ResolverProblema rp=new ResolverProblema();
         switch(e.getActionCommand()){
             case "verifyObjectiveFunction":
-                GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
-                FuncionObjetivo fo=gfo.crearFuncionObjetivo(panel.objectiveFunctionFiled.getText());
+                gfo=new GestionadorFuncionObjetivo();
+                fo=gfo.crearFuncionObjetivo(panel.objectiveFunctionFiled.getText());
                 if(fo==null){
                     JOptionPane.showMessageDialog(null,"No se pudo crear la función objetivo","Error",JOptionPane.ERROR_MESSAGE);
                     rp.setFo(fo);
@@ -100,9 +106,11 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
             break;
             case "maxButton":
                 welcomeLayout.show(panel.welcomePanelContainer, "resultsPanelContainer");
+                rop=new ResolvedorProblema(rp,"maximizar");
             break;
             case "mixButton":
                 welcomeLayout.show(panel.welcomePanelContainer, "resultsPanelContainer");
+                rop=new ResolvedorProblema(rp,"minimizar");
             break;
             default:
             break;
