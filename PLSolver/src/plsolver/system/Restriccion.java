@@ -16,8 +16,9 @@ public class Restriccion {
     private String s2;
     private String s3;
     private String desigualdad;
+    private String restriccionOriginal;
 
-    public Restriccion(int noVariables) {
+    public Restriccion(int noVariables,String restriccionOrignal) {
         this.noVariables = noVariables;
         v1=null;
         v2=null;
@@ -33,6 +34,7 @@ public class Restriccion {
         s2=null;
         s3=null;
         desigualdad=null;
+        this.restriccionOriginal=restriccionOriginal;
     }
     
     public Restriccion(String v1, String v2, int c1, int c2, int cr, int noVariables, String s1, String desigualdad) {

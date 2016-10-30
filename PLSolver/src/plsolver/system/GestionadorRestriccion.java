@@ -17,7 +17,7 @@ public class GestionadorRestriccion {
             return null;
         }
         if(error.equals("ok")){
-            Restriccion r=new Restriccion(listaVariables.size());
+            Restriccion r=new Restriccion(listaVariables.size(),funcion);
             llenarRestriccion(r);
             return r;
         }

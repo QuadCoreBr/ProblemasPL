@@ -17,8 +17,7 @@ public class GestionadorFuncionObjetivo {
             return null;
         }
         if(error.equals("ok")){
-            System.out.println("no esta vacia");
-            FuncionObjetivo fo=new FuncionObjetivo(listaVariables.size());
+            FuncionObjetivo fo=new FuncionObjetivo(listaVariables.size(),funcion);
             llenarFuncionObjetivo(fo);
             return fo;
         }

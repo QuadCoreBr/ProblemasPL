@@ -12,7 +12,8 @@ public class FuncionObjetivo {
     private int noVariables;
     private String s1;
     private String s2;
-    private String s3;   
+    private String s3;
+    private String funcionOriginal;
 
     FuncionObjetivo() {
         v1=null;
@@ -28,7 +29,7 @@ public class FuncionObjetivo {
         s2=null;
         s3=null;
     }
-    FuncionObjetivo(int noVariables) {
+    FuncionObjetivo(int noVariables,String funcionOriginal) {
         v1=null;
         v2=null;
         v3=null;
@@ -41,8 +42,16 @@ public class FuncionObjetivo {
         s1=null;
         s2=null;
         s3=null;
+        this.funcionOriginal=funcionOriginal;
     }
 
+    public String getFuncionOriginal() {
+        return funcionOriginal;
+    }
+
+    public void setFuncionOriginal(String funcionOriginal) {
+        this.funcionOriginal = funcionOriginal;
+    }
     public String getV1() {
         return v1;
     }

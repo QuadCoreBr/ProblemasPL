@@ -83,6 +83,9 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction5Label = new javax.swing.JLabel();
         restriction5Field = new javax.swing.JTextField();
         resttriction5Button = new javax.swing.JButton();
+        resultsPanelContainer = new javax.swing.JPanel();
+        resultsPanelTittle = new javax.swing.JPanel();
+        resultsPanel = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(810, 410));
         setMinimumSize(new java.awt.Dimension(810, 410));
@@ -156,10 +159,14 @@ public class WelcomePanel extends javax.swing.JPanel {
         requerimentChoosePanel.setLayout(new java.awt.GridLayout(2, 0));
 
         maxButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plsolver/view/images/Max.png"))); // NOI18N
+        maxButton.setName("maxButton"); // NOI18N
         requerimentChoosePanel.add(maxButton);
+        maxButton.getAccessibleContext().setAccessibleName("maxButton");
 
         minButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plsolver/view/images/Min.png"))); // NOI18N
+        minButton.setName("mixButton"); // NOI18N
         requerimentChoosePanel.add(minButton);
+        minButton.getAccessibleContext().setAccessibleName("mixButton");
 
         requerimentContainerPanel.add(requerimentChoosePanel, java.awt.BorderLayout.LINE_START);
 
@@ -352,13 +359,13 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction3panelLayout.setHorizontalGroup(
             restriction3panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(restriction3panelLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(93, 93, 93)
                 .addComponent(restriction3Label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(restriction3Field, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(resttriction3Button)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         restriction3panelLayout.setVerticalGroup(
             restriction3panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,6 +461,44 @@ public class WelcomePanel extends javax.swing.JPanel {
 
         welcomePanelContainer.add(fieldsRequerimentPanel, "fieldsRequerimentPanel");
 
+        resultsPanelContainer.setLayout(new java.awt.BorderLayout());
+
+        resultsPanelTittle.setBackground(new java.awt.Color(118, 40, 52));
+        resultsPanelTittle.setMaximumSize(new java.awt.Dimension(810, 80));
+        resultsPanelTittle.setMinimumSize(new java.awt.Dimension(810, 80));
+
+        javax.swing.GroupLayout resultsPanelTittleLayout = new javax.swing.GroupLayout(resultsPanelTittle);
+        resultsPanelTittle.setLayout(resultsPanelTittleLayout);
+        resultsPanelTittleLayout.setHorizontalGroup(
+            resultsPanelTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+        );
+        resultsPanelTittleLayout.setVerticalGroup(
+            resultsPanelTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
+        );
+
+        resultsPanelContainer.add(resultsPanelTittle, java.awt.BorderLayout.PAGE_START);
+
+        resultsPanel.setBackground(new java.awt.Color(255, 255, 255));
+        resultsPanel.setMaximumSize(new java.awt.Dimension(810, 332));
+        resultsPanel.setMinimumSize(new java.awt.Dimension(810, 332));
+
+        javax.swing.GroupLayout resultsPanelLayout = new javax.swing.GroupLayout(resultsPanel);
+        resultsPanel.setLayout(resultsPanelLayout);
+        resultsPanelLayout.setHorizontalGroup(
+            resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+        );
+        resultsPanelLayout.setVerticalGroup(
+            resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
+        );
+
+        resultsPanelContainer.add(resultsPanel, java.awt.BorderLayout.CENTER);
+
+        welcomePanelContainer.add(resultsPanelContainer, "resultsPanelContainer");
+
         add(welcomePanelContainer, "welcomePanelContainer");
     }// </editor-fold>//GEN-END:initComponents
 
@@ -501,6 +546,9 @@ public class WelcomePanel extends javax.swing.JPanel {
     public javax.swing.JButton resttriction3Button;
     public javax.swing.JButton resttriction4Button;
     public javax.swing.JButton resttriction5Button;
+    public javax.swing.JPanel resultsPanel;
+    public javax.swing.JPanel resultsPanelContainer;
+    public javax.swing.JPanel resultsPanelTittle;
     public javax.swing.JButton verifyObjectiveFunction;
     public javax.swing.JLabel welcomeBannerIcon;
     public javax.swing.JPanel welcomePanel;
