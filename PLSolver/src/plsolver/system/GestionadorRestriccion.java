@@ -153,6 +153,25 @@ public class GestionadorRestriccion {
         }
         return coeficientesArray;
     }
+    public String[] signosToArray(Restriccion r){
+        int noSignos = r.getNoVariables()-1;
+        String[ ]   signosArray = new  String[noSignos];
+        switch(noSignos){
+            case 1:
+                signosArray[0]=r.getS1();
+            break;
+            case 2:
+                signosArray[0]=r.getS1();
+                signosArray[1]=r.getS2();
+            break;
+            case 3:
+                signosArray[0]=r.getS1();
+                signosArray[1]=r.getS2();
+                signosArray[2]=r.getS3();
+            break;
+        }
+        return signosArray;
+    }
     public static boolean isNumeric(String str) {
         return (str.matches("[+-]?\\d*(\\.\\d+)?") && str.equals("")==false);
     }
