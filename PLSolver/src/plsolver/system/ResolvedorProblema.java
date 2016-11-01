@@ -1,9 +1,12 @@
 
 package plsolver.system;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class ResolvedorProblema {
     private ResolverProblema rp;
     private String accion;
+    private ManejoNumeros mn;
 
     public ResolvedorProblema(ResolverProblema rp, String accion) {
         this.rp = rp;
@@ -13,14 +16,24 @@ public class ResolvedorProblema {
     public void resolver(){
         
     }
-    public void obtenerIntervalo(){
-        FuncionObjetivo fo=rp.getFo();
-        int[ ]   coeficientesFO = new  int[fo.getNoVariables()];
-        for(int i=0;i<=coeficientesFO.length;i++){
-           //coeficientesFO[i]=fo.
-        }
+    public int obtenerIntervalo(){
+        GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
+        int [] coeficientesFO=gfo.coeficientesTOArray(rp.getFo());
+        mn=new ManejoNumeros();
+        return mn.maximo(coeficientesFO);
     }
-    public void generarNumerosAleatorios(){//regresar arreglo
+    public int [][] generarNumerosAleatorios(int cantidadX,int cantidadY,int intervalo){//regresar arreglo
+        int[ ][ ] numerosAleatorios = new  int[10][4];
+        int i,j=0;
+        int intervaloDivision=intervalo/10;
+        int intervaloAux=intervaloDivision;
+        for(i=0;i<cantidadY;i++){//se llena altura
+            for(j=0;j<cantidadX;j++){//se llena ancho
+                numerosAleatorios[i][j]=ThreadLocalRandom.current().nextInt(0, intervaloAux);
+            }
+            intervaloAux=intervaloAux+intervaloDivision;
+        }
+        return numerosAleatorios;
     }
     public boolean evaluarRestriccion(Restriccion restriccion,int [] numerosAleatorios){
         GestionadorRestriccion gr= new GestionadorRestriccion();
