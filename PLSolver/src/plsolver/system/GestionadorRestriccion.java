@@ -41,49 +41,36 @@ public class GestionadorRestriccion {
         }
     }
      public int separarTerminosRestriccion(String funcion){
-        ArrayList<String> ls = new ArrayList<>();
         ArrayList<String> lc = new ArrayList<>();
         ArrayList<String> lv = new ArrayList<>();
         String des="";
-        StringTokenizer st = new StringTokenizer(funcion,"+-",true);//separamos signos de los terminos
-        String aux=null;
-        while (st.hasMoreTokens()) {
-            aux=st.nextToken();
-            if(aux.equals("+")||aux.equals("-")){
-                ls.add(aux);
-                //System.out.println(aux+"es un signo");
-                this.listaSignos=ls;
-            }else{
-                //es termino
-                StringTokenizer st1 = new StringTokenizer(aux,"<>=",true);//separamos signos de los terminos
-                String aux1=null;
-                while (st1.hasMoreTokens()) {
-                    aux1=st1.nextToken();
-                    if(aux1.equals("<")||aux1.equals(">")||aux1.equals("=")){//es signo
-                        des=des+aux1;
-                        //System.out.println(aux1+"es un signo de desigualdad");
-                        this.desigualdad=des;
-                    }else{// es variable o coeficiente
-                        StringTokenizer st2 = new StringTokenizer(aux1,"abcdefghijklmnopqrstuvwxyz",true);//separamos coeficientes de variables
-                        String aux2=null;
-                        while (st2.hasMoreTokens()) {
-                            aux2=st2.nextToken();
-                            if(isNumeric(aux2)){
-                                //es coeficiente
-                                //System.out.println(aux2+"es un coeficiente");
-                                lc.add(aux2);
-                                this.listaCoeficientes=lc;
-                            }else{// es variable
-                                //System.out.println(aux2+"es una variable");
-                                lv.add(aux2);
-                                this.listaVariables=lv;
-                            }
-                        }
+        StringTokenizer st1 = new StringTokenizer(funcion,"<>=",true);//separamos signos de los terminos
+        String aux1=null;
+        while (st1.hasMoreTokens()) {
+            aux1=st1.nextToken();
+            if(aux1.equals("<")||aux1.equals(">")||aux1.equals("=")){//es desigualdad
+                des=des+aux1;
+                System.out.println("desigualdad " +des);
+                this.desigualdad=des;
+            }else{// es variable o coeficiente
+                StringTokenizer st2 = new StringTokenizer(aux1,"abcdefghijklmnopqrstuvwxyz",true);//separamos coeficientes de variables
+                String aux2=null;
+                while (st2.hasMoreTokens()) {
+                    aux2=st2.nextToken();
+                    if(isNumeric(aux2)){
+                        //es coeficiente
+                        System.out.println("coeficiente " +aux2);
+                        lc.add(aux2);
+                        this.listaCoeficientes=lc;
+                    }else{// es variable
+                        System.out.println("variable " +aux2);
+                        lv.add(aux2);
+                        this.listaVariables=lv;
                     }
                 }
             }
         }
-        if(ls.size()>=1&&lv.size()>=2&&des.length()>=1){
+        if(lc.size()>=2&&lv.size()>=2&&des.length()>=1){
             return 1;
         }else{
             return 0;
@@ -95,7 +82,6 @@ public class GestionadorRestriccion {
                 r.setC1(Integer.parseInt(listaCoeficientes.get(0)));
                 r.setC2(Integer.parseInt(listaCoeficientes.get(1)));
                 r.setCr(Integer.parseInt(listaCoeficientes.get(2)));
-                r.setS1(listaSignos.get(0));
                 r.setV1(listaVariables.get(0));
                 r.setV2(listaVariables.get(1));
                 r.setDesigualdad(desigualdad);
@@ -105,8 +91,6 @@ public class GestionadorRestriccion {
                 r.setC2(Integer.parseInt(listaCoeficientes.get(1)));
                 r.setC3(Integer.parseInt(listaCoeficientes.get(2)));
                 r.setCr(Integer.parseInt(listaCoeficientes.get(3)));
-                r.setS1(listaSignos.get(0));
-                r.setS2(listaSignos.get(1));
                 r.setV1(listaVariables.get(0));
                 r.setV2(listaVariables.get(1));
                 r.setV2(listaVariables.get(2));
@@ -118,9 +102,6 @@ public class GestionadorRestriccion {
                 r.setC3(Integer.parseInt(listaCoeficientes.get(2)));
                 r.setC4(Integer.parseInt(listaCoeficientes.get(3)));
                 r.setCr(Integer.parseInt(listaCoeficientes.get(4)));
-                r.setS1(listaSignos.get(0));
-                r.setS2(listaSignos.get(1));
-                r.setS3(listaSignos.get(2));
                 r.setV1(listaVariables.get(0));
                 r.setV2(listaVariables.get(1));
                 r.setV2(listaVariables.get(2));
@@ -154,26 +135,6 @@ public class GestionadorRestriccion {
         }
         return coeficientesArray;
     }
-    public String[] signosToArray(Restriccion r){
-        int noSignos = r.getNoVariables()-1;
-        String[ ]   signosArray = new  String[noSignos];
-        switch(noSignos){
-            case 1:
-                signosArray[0]=r.getS1();
-            break;
-            case 2:
-                signosArray[0]=r.getS1();
-                signosArray[1]=r.getS2();
-            break;
-            case 3:
-                signosArray[0]=r.getS1();
-                signosArray[1]=r.getS2();
-                signosArray[2]=r.getS3();
-            break;
-        }
-        return signosArray;
-    }
-    
     public static boolean isNumeric(String str) {
         return (str.matches("[+-]?\\d*(\\.\\d+)?") && str.equals("")==false);
     }

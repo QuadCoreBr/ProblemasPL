@@ -70,9 +70,8 @@ public class ResolvedorProblema {
         int noVariables=restriccion.getNoVariables();
         int [] coeficientesRestriccion = gr.coeficientesTOArray(restriccion);
         String [] signosRestriccion =gr.signosToArray(restriccion);
-        //System.out.println("...tamaño de signos resriccion es :"+ signosRestriccion.length);
         if(!(coeficientesRestriccion.length==numerosAleatorios.length)){
-            System.out.println("Algo anda mal en el evaluo de restriccion");
+            System.out.println("...Algo anda mal en el evaluo de restriccion");
             return false;
         }
         int operacionIzquierda=0;// primero se tiene un 0 a ese cero se le suma el primer producto de i's

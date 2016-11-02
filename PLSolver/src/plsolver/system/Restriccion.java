@@ -12,9 +12,6 @@ public class Restriccion {
     private int c4;
     private int cr;
     private int noVariables;
-    private String s1;
-    private String s2;
-    private String s3;
     private String desigualdad;
     private String restriccionOriginal;
 
@@ -30,55 +27,9 @@ public class Restriccion {
         c4=0;
         cr=0;
         noVariables=0;
-        s1=null;
-        s2=null;
-        s3=null;
         desigualdad=null;
         this.restriccionOriginal=restriccionOriginal;
     }
-    
-    public Restriccion(String v1, String v2, int c1, int c2, int cr, int noVariables, String s1, String desigualdad) {
-        this.v1 = v1;
-        this.v2 = v2;
-        this.c1 = c1;
-        this.c2 = c2;
-        this.cr=cr;
-        this.noVariables = noVariables;
-        this.s1 = s1;
-        this.desigualdad = desigualdad;
-    }
-
-    public Restriccion(String v1, String v2, String v3, int c1, int c2, int c3,int cr, int noVariables, String s1, String s2, String desigualdad) {
-        this.v1 = v1;
-        this.v2 = v2;
-        this.v3 = v3;
-        this.c1 = c1;
-        this.c2 = c2;
-        this.c3 = c3;
-        this.cr=cr;
-        this.noVariables = noVariables;
-        this.s1 = s1;
-        this.s2 = s2;
-        this.desigualdad = desigualdad;
-    }
-
-    public Restriccion(String v1, String v2, String v3, String v4, int c1, int c2, int c3, int c4, int cr, int noVariables, String s1, String s2, String s3, String desigualdad) {
-        this.v1 = v1;
-        this.v2 = v2;
-        this.v3 = v3;
-        this.v4 = v4;
-        this.c1 = c1;
-        this.c2 = c2;
-        this.c3 = c3;
-        this.c4 = c4;
-        this.cr=cr;
-        this.noVariables = noVariables;
-        this.s1 = s1;
-        this.s2 = s2;
-        this.s3 = s3;
-        this.desigualdad = desigualdad;
-    }
-
     public String getV1() {
         return v1;
     }
@@ -158,31 +109,6 @@ public class Restriccion {
     public void setNoVariables(int noVariables) {
         this.noVariables = noVariables;
     }
-
-    public String getS1() {
-        return s1;
-    }
-
-    public void setS1(String s1) {
-        this.s1 = s1;
-    }
-
-    public String getS2() {
-        return s2;
-    }
-
-    public void setS2(String s2) {
-        this.s2 = s2;
-    }
-
-    public String getS3() {
-        return s3;
-    }
-
-    public void setS3(String s3) {
-        this.s3 = s3;
-    }
-
     public String getDesigualdad() {
         return desigualdad;
     }

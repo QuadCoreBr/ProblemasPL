@@ -37,38 +37,25 @@ public class GestionadorFuncionObjetivo {
         }
     }
     public int separarTerminosDeFuncionObjetivo(String funcion){
-        ArrayList<String> ls = new ArrayList<>();
         ArrayList<String> lc = new ArrayList<>();
         ArrayList<String> lv = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(funcion,"+-",true);//separamos signos de los terminos
+        StringTokenizer st = new StringTokenizer(funcion,"abcdefghijklmnopqrstuvwxyz",true);//separamos coeficientes de variables
         String aux=null;
         while (st.hasMoreTokens()) {
             aux=st.nextToken();
-            if(aux.equals("+")||aux.equals("-")){
-                ls.add(aux);
-                System.out.println(aux+"es un signo");
-                this.listaSignos=ls;
+            if(isNumeric(aux)){
+                //es coeficiente
+                System.out.println("coeficiente " +aux);
+                lc.add(aux);
+                this.listaCoeficientes=lc;
             }else{
-                //es termino
-                StringTokenizer st2 = new StringTokenizer(aux,"abcdefghijklmnopqrstuvwxyz",true);//separamos coeficientes de variables
-                String aux2=null;
-                while (st2.hasMoreTokens()) {
-                    aux2=st2.nextToken();
-                    if(isNumeric(aux2)){
-                        //es coeficiente
-                        System.out.println(aux2+"es un coeficiente");
-                        lc.add(aux2);
-                        this.listaCoeficientes=lc;
-                    }else{
-                        //es variable
-                        System.out.println(aux2+"es unavariable");
-                        lv.add(aux2);
-                        this.listaVariables=lv;
-                    }
-                }
+                //es variable
+                System.out.println("variable " +aux);
+                lv.add(aux);
+                this.listaVariables=lv;
             }
         }
-        if(ls.size()>=1&&lv.size()>=2){
+        if(lv.size()>=2&&lc.size()>=2){
             return 1;
         }else{
             return 0;
@@ -79,7 +66,6 @@ public class GestionadorFuncionObjetivo {
             case 2:
                 fo.setC1(Integer.parseInt(listaCoeficientes.get(0)));
                 fo.setC2(Integer.parseInt(listaCoeficientes.get(1)));
-                fo.setS1(listaSignos.get(0));
                 fo.setV1(listaVariables.get(0));
                 fo.setV2(listaVariables.get(1));
             break;
@@ -87,8 +73,6 @@ public class GestionadorFuncionObjetivo {
                 fo.setC1(Integer.parseInt(listaCoeficientes.get(0)));
                 fo.setC2(Integer.parseInt(listaCoeficientes.get(1)));
                 fo.setC3(Integer.parseInt(listaCoeficientes.get(2)));
-                fo.setS1(listaSignos.get(0));
-                fo.setS2(listaSignos.get(1));
                 fo.setV1(listaVariables.get(0));
                 fo.setV2(listaVariables.get(1));
                 fo.setV2(listaVariables.get(2));
@@ -98,9 +82,6 @@ public class GestionadorFuncionObjetivo {
                 fo.setC2(Integer.parseInt(listaCoeficientes.get(1)));
                 fo.setC3(Integer.parseInt(listaCoeficientes.get(2)));
                 fo.setC4(Integer.parseInt(listaCoeficientes.get(3)));
-                fo.setS1(listaSignos.get(0));
-                fo.setS2(listaSignos.get(1));
-                fo.setS3(listaSignos.get(2));
                 fo.setV1(listaVariables.get(0));
                 fo.setV2(listaVariables.get(1));
                 fo.setV2(listaVariables.get(2));
