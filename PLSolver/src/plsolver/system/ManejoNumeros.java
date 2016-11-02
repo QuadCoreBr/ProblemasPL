@@ -2,7 +2,7 @@
 package plsolver.system;
 
 public class ManejoNumeros {
-    static float calculaMaximo(int valores[]) {
+    public static float calculaMaximo(int valores[]) {
         float maximo = 0;
         int indice;
         
