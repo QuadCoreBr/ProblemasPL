@@ -45,12 +45,12 @@ public class GestionadorFuncionObjetivo {
             aux=st.nextToken();
             if(isNumeric(aux)){
                 //es coeficiente
-                System.out.println("coeficiente " +aux);
+                //System.out.println("..coeficiente " +aux);
                 lc.add(aux);
                 this.listaCoeficientes=lc;
             }else{
                 //es variable
-                System.out.println("variable " +aux);
+                //System.out.println("...variable " +aux);
                 lv.add(aux);
                 this.listaVariables=lv;
             }

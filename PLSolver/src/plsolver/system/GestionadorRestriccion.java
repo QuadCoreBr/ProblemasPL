@@ -50,7 +50,7 @@ public class GestionadorRestriccion {
             aux1=st1.nextToken();
             if(aux1.equals("<")||aux1.equals(">")||aux1.equals("=")){//es desigualdad
                 des=des+aux1;
-                System.out.println("desigualdad " +des);
+                //System.out.println("...desigualdad " +des);
                 this.desigualdad=des;
             }else{// es variable o coeficiente
                 StringTokenizer st2 = new StringTokenizer(aux1,"abcdefghijklmnopqrstuvwxyz",true);//separamos coeficientes de variables
@@ -59,11 +59,11 @@ public class GestionadorRestriccion {
                     aux2=st2.nextToken();
                     if(isNumeric(aux2)){
                         //es coeficiente
-                        System.out.println("coeficiente " +aux2);
+                        //System.out.println("....coeficiente " +aux2);
                         lc.add(aux2);
                         this.listaCoeficientes=lc;
                     }else{// es variable
-                        System.out.println("variable " +aux2);
+                        //System.out.println("....variable " +aux2);
                         lv.add(aux2);
                         this.listaVariables=lv;
                     }

@@ -322,6 +322,7 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="objectiveFunctionFiled">
                           <Properties>
+                            <Property name="text" type="java.lang.String" value="3x+5y"/>
                             <Property name="toolTipText" type="java.lang.String" value="A+B+C+D"/>
                             <Property name="name" type="java.lang.String" value="objectiveFunctionFiled" noResource="true"/>
                           </Properties>
@@ -463,6 +464,7 @@
                                 </Component>
                                 <Component class="javax.swing.JTextField" name="restriction1Field">
                                   <Properties>
+                                    <Property name="text" type="java.lang.String" value="2x+1y&lt;=75"/>
                                     <Property name="toolTipText" type="java.lang.String" value="a+b+c+d&gt;1"/>
                                   </Properties>
                                 </Component>
@@ -517,6 +519,7 @@
                                 </Component>
                                 <Component class="javax.swing.JTextField" name="restriction2Field">
                                   <Properties>
+                                    <Property name="text" type="java.lang.String" value="2x+3y&gt;=10"/>
                                     <Property name="toolTipText" type="java.lang.String" value="a+b+c+d&gt;1"/>
                                   </Properties>
                                 </Component>

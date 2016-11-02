@@ -188,6 +188,7 @@ public class WelcomePanel extends javax.swing.JPanel {
         objectiveFunctionZLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         objectiveFunctionZLabel.setText("Z= ");
 
+        objectiveFunctionFiled.setText("3x+5y");
         objectiveFunctionFiled.setToolTipText("A+B+C+D");
         objectiveFunctionFiled.setName("objectiveFunctionFiled"); // NOI18N
 
@@ -280,6 +281,7 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction1Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         restriction1Label.setText("1)");
 
+        restriction1Field.setText("2x+1y<=75");
         restriction1Field.setToolTipText("a+b+c+d>1");
 
         resttriction1Button.setText("Agregar");
@@ -314,6 +316,7 @@ public class WelcomePanel extends javax.swing.JPanel {
         restriction2Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         restriction2Label.setText("2)");
 
+        restriction2Field.setText("2x+3y>=10");
         restriction2Field.setToolTipText("a+b+c+d>1");
 
         resttriction2Button.setText("Agregar");
