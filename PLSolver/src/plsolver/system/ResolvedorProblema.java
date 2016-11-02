@@ -7,31 +7,61 @@ public class ResolvedorProblema {
     private ResolverProblema rp;
     private String accion;
     private ManejoNumeros mn;
+    private int noIteraciones;
+    private int divisor=10;
 
-    public ResolvedorProblema(ResolverProblema rp, String accion) {
+    public ResolvedorProblema(ResolverProblema rp, String accion,int noIteraciones) {
         this.rp = rp;
         this.accion = accion;
+        this.noIteraciones=noIteraciones;
         resolver();
     }
     public void resolver(){
-        
+        //1 generar numeros aleatorios ¿Cuantas veces se hara? noIteraciones
+        //2 de esos numeros escoger cuales cumplen 
+        int cantidadNoVariables=rp.getFo().getNoVariables();
+        int cantidadNumeros=divisor;
+        int[ ][ ] numerosAleatoriosFiltrados = new  int[cantidadNumeros][cantidadNoVariables];
+        Restriccion[] restricciones=rp.getArregloRestricciones(rp);
+        int intervalo=0;
+        int intervaloFO=this.obtenerIntervaloFO();
+        for(int i=0; i<=noIteraciones;i++){
+            intervalo=obtenerIntervaloParcial(intervalo,intervaloFO,divisor);
+            //necesitamos almacenar en un array los conjuntos de numeros que cumplen las condiciones
+            int[ ][ ] numerosAleatoriosAux =generarNumerosAleatorios(cantidadNoVariables,cantidadNumeros,intervalo);
+            for(int k=0;k<cantidadNumeros;k++){//recorremos los numeros generados
+                int auxValidadorRestriccion=0;
+                for(int z=0;z<=rp.getNoRestricciones();z++){//recorriendo restricciones, restriccion por restriccion
+                    if(evaluarRestriccion(restricciones[z],numerosAleatoriosAux[k])){/*al algoritmo que evalua los numeros se le envia toda la columna*/
+                        auxValidadorRestriccion++;
+                    }
+                }
+                if(auxValidadorRestriccion==rp.getNoRestricciones()){
+                    numerosAleatoriosFiltrados[k]=numerosAleatoriosAux[k];//
+                }
+            }
+            intervalo=intervalo+intervalo;
+        }
+        //termina generacion y filtrado de numeros aleatorios
     }
-    public int obtenerIntervalo(){
+    
+    public int obtenerIntervaloFO(){
         GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
         int [] coeficientesFO=gfo.coeficientesTOArray(rp.getFo());
         mn=new ManejoNumeros();
         return mn.maximo(coeficientesFO);
     }
-    public int [][] generarNumerosAleatorios(int cantidadX,int cantidadY,int intervalo){//regresar arreglo
-        int[ ][ ] numerosAleatorios = new  int[10][4];
+    public int obtenerIntervaloParcial(int intervalo,int intervaloFO,int divisor){
+        return intervalo+(intervaloFO/divisor);
+    }
+    public int [][] generarNumerosAleatorios(int cantidadNoVariables,int cantidadNumeros,int intervalo){//regresar arreglo
+        int[ ][ ] numerosAleatorios = new  int[cantidadNumeros][cantidadNoVariables];
         int i,j=0;
-        int intervaloDivision=intervalo/10;
-        int intervaloAux=intervaloDivision;
-        for(i=0;i<cantidadY;i++){//se llena altura
-            for(j=0;j<cantidadX;j++){//se llena ancho
-                numerosAleatorios[i][j]=ThreadLocalRandom.current().nextInt(0, intervaloAux);
+
+        for(i=0;i<cantidadNumeros;i++){//se llena altura
+            for(j=0;j<cantidadNoVariables;j++){//se llena ancho
+                numerosAleatorios[i][j]=ThreadLocalRandom.current().nextInt(0, intervalo);
             }
-            intervaloAux=intervaloAux+intervaloDivision;
         }
         return numerosAleatorios;
     }

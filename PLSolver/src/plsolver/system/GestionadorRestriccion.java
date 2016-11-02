@@ -9,6 +9,7 @@ public class GestionadorRestriccion {
     private ArrayList<String> listaCoeficientes;
     private ArrayList<String> listaSignos;
     private String desigualdad;
+    private Restriccion restricciones[];
     
     public Restriccion CrearRestriccion(String funcion){
         System.out.println(funcion);
@@ -172,6 +173,7 @@ public class GestionadorRestriccion {
         }
         return signosArray;
     }
+    
     public static boolean isNumeric(String str) {
         return (str.matches("[+-]?\\d*(\\.\\d+)?") && str.equals("")==false);
     }

@@ -100,17 +100,20 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         CardLayout welcomeLayout = (CardLayout) panel.welcomePanelContainer.getLayout();
+        int noIteraciones;
         switch(e.getComponent().getName()){
             case "welcomeBannerIcon":
                 welcomeLayout.show(panel.welcomePanelContainer, "fieldsRequerimentPanel");
             break;
             case "maxButton":
+                noIteraciones = Integer.parseInt(JOptionPane.showInputDialog("Numero de iteraciones"));
                 welcomeLayout.show(panel.welcomePanelContainer, "resultsPanelContainer");
-                rop=new ResolvedorProblema(rp,"maximizar");
+                rop=new ResolvedorProblema(rp,"maximizar",noIteraciones);//recordar que rp ya esta creado y lleno
             break;
             case "mixButton":
+                noIteraciones = Integer.parseInt(JOptionPane.showInputDialog("Numero de iteraciones"));
                 welcomeLayout.show(panel.welcomePanelContainer, "resultsPanelContainer");
-                rop=new ResolvedorProblema(rp,"minimizar");
+                rop=new ResolvedorProblema(rp,"minimizar",noIteraciones);//recordar que rp ya esta creado y lleno
             break;
             default:
             break;

@@ -23,6 +23,8 @@ public class WelcomePanel extends javax.swing.JPanel {
     public void myinitComponents(){
         ControlWelcomePanel cwelcomepanel = new ControlWelcomePanel(this);
         welcomeBannerIcon.addMouseListener(cwelcomepanel);
+        maxButton.addMouseListener(cwelcomepanel);
+        minButton.addMouseListener(cwelcomepanel);
         verifyObjectiveFunction.addActionListener(cwelcomepanel);
         resttriction1Button.addActionListener(cwelcomepanel);
         resttriction2Button.addActionListener(cwelcomepanel);

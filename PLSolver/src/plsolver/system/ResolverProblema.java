@@ -103,4 +103,34 @@ public class ResolverProblema {
     public void setR5(Restriccion r5) {
         this.r5 = r5;
     }
+    public Restriccion [] getArregloRestricciones(ResolverProblema rp){
+        Restriccion[ ]   restricciones = new  Restriccion[rp.getNoRestricciones()];
+        switch(rp.getNoRestricciones()){
+            case 1:
+                restricciones[0]=rp.getR1();
+            case 2:
+                restricciones[0]=rp.getR1();
+                restricciones[1]=rp.getR2();
+            break;
+            case 3:
+                restricciones[0]=rp.getR1();
+                restricciones[1]=rp.getR2();
+                restricciones[2]=rp.getR3();
+            break;
+            case 4:
+                restricciones[0]=rp.getR1();
+                restricciones[1]=rp.getR2();
+                restricciones[2]=rp.getR3();
+                restricciones[3]=rp.getR4();
+            break;
+            case 5:
+                restricciones[0]=rp.getR1();
+                restricciones[1]=rp.getR2();
+                restricciones[2]=rp.getR3();
+                restricciones[3]=rp.getR4();
+                restricciones[4]=rp.getR5();
+            break;
+        }
+        return restricciones;
+    }
 }
