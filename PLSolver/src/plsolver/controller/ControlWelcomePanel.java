@@ -38,60 +38,60 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
                 gfo=new GestionadorFuncionObjetivo();
                 fo=gfo.crearFuncionObjetivo(panel.objectiveFunctionFiled.getText());
                 if(fo==null){
-                    JOptionPane.showMessageDialog(null,"No se pudo crear la función objetivo","Error",JOptionPane.ERROR_MESSAGE);
-                    rp.setFo(fo);
+                    JOptionPane.showMessageDialog(null,"No se pudo crear la función objetivo","Error",JOptionPane.ERROR_MESSAGE);         
                 }else{
                     JOptionPane.showMessageDialog(null,"Funcion Objetivo Creada","OK",JOptionPane.INFORMATION_MESSAGE);
+                    rp.setFo(fo);
                 }
             break;
             case "resttriction1Button":
                 Restriccion r1=gr.CrearRestriccion(panel.restriction1Field.getText());
                 if(r1==null){
                     JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
-                    rp.setR1(r1);
-                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }else{
                     JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                    rp.setR1(r1);
+                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }
             break;
             case "resttriction2Button":
                 Restriccion r2=gr.CrearRestriccion(panel.restriction2Field.getText());
                 if(r2==null){
                     JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
-                    rp.setR2(r2);
-                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }else{
                     JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                    rp.setR2(r2);
+                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }
             break;
             case "resttriction3Button":
                 Restriccion r3=gr.CrearRestriccion(panel.restriction3Field.getText());
                 if(r3==null){
                     JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
-                    rp.setR3(r3);
-                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }else{
                     JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                    rp.setR3(r3);
+                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }
             break;
             case "resttriction4Button":
                 Restriccion r4=gr.CrearRestriccion(panel.restriction4Field.getText());
                 if(r4==null){
                     JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
-                    rp.setR4(r4);
-                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }else{
                     JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                    rp.setR4(r4);
+                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }
             break;
             case "resttriction5Button":
                 Restriccion r5=gr.CrearRestriccion(panel.restriction5Field.getText());
                 if(r5==null){
                     JOptionPane.showMessageDialog(null,"No se pudo crear la restriccion","Error",JOptionPane.ERROR_MESSAGE);
-                    rp.setR5(r5);
-                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }else{
                     JOptionPane.showMessageDialog(null,"Restricción establecida","OK",JOptionPane.INFORMATION_MESSAGE);
+                    rp.setR5(r5);
+                    rp.setNoRestricciones(rp.getNoRestricciones()+1);
                 }
             break;
         }
@@ -107,6 +107,7 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
             break;
             case "maxButton":
                 noIteraciones = Integer.parseInt(JOptionPane.showInputDialog("Numero de iteraciones"));
+                System.out.println("seran"+noIteraciones+ " iteraciones");
                 welcomeLayout.show(panel.welcomePanelContainer, "resultsPanelContainer");
                 rop=new ResolvedorProblema(rp,"maximizar",noIteraciones);//recordar que rp ya esta creado y lleno
             break;

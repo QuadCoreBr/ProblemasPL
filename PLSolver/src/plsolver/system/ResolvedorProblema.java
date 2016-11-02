@@ -8,7 +8,8 @@ public class ResolvedorProblema {
     private String accion;
     private ManejoNumeros mn;
     private int noIteraciones;
-    private int divisor=10;
+    private int intervaloMax=1000;
+    private int noAleatoriosIteracion=10;
 
     public ResolvedorProblema(ResolverProblema rp, String accion,int noIteraciones) {
         this.rp = rp;
@@ -20,49 +21,48 @@ public class ResolvedorProblema {
         //1 generar numeros aleatorios ¿Cuantas veces se hara? noIteraciones
         //2 de esos numeros escoger cuales cumplen 
         int cantidadNoVariables=rp.getFo().getNoVariables();
-        int cantidadNumeros=divisor;
+        System.out.println("...la cantidad de variables en fo es: "+cantidadNoVariables);
+        int cantidadNumeros=noAleatoriosIteracion;
         int[ ][ ] numerosAleatoriosFiltrados = new  int[cantidadNumeros][cantidadNoVariables];
         Restriccion[] restricciones=rp.getArregloRestricciones(rp);
+        
         int intervalo=0;
-        int intervaloFO=this.obtenerIntervaloFO();
         for(int i=0; i<=noIteraciones;i++){
-            intervalo=obtenerIntervaloParcial(intervalo,intervaloFO,divisor);
+            //intervalo=obtenerIntervaloParcial(intervalo);
+            intervalo=intervaloMax;
             //necesitamos almacenar en un array los conjuntos de numeros que cumplen las condiciones
             int[ ][ ] numerosAleatoriosAux =generarNumerosAleatorios(cantidadNoVariables,cantidadNumeros,intervalo);
             for(int k=0;k<cantidadNumeros;k++){//recorremos los numeros generados
                 int auxValidadorRestriccion=0;
-                for(int z=0;z<=rp.getNoRestricciones();z++){//recorriendo restricciones, restriccion por restriccion
-                    if(evaluarRestriccion(restricciones[z],numerosAleatoriosAux[k])){/*al algoritmo que evalua los numeros se le envia toda la columna*/
-                        auxValidadorRestriccion++;
+                for(int l=0;l<cantidadNoVariables;l++){
+                    for(int z=0;z<rp.getNoRestricciones();z++){//recorriendo restricciones, restriccion por restriccion
+                        if(evaluarRestriccion(restricciones[z],numerosAleatoriosAux[k])){//al algoritmo que evalua los numeros se le envia toda la columna
+                            auxValidadorRestriccion++;
+                        }
                     }
-                }
+                }  
                 if(auxValidadorRestriccion==rp.getNoRestricciones()){
-                    numerosAleatoriosFiltrados[k]=numerosAleatoriosAux[k];//
+                    numerosAleatoriosFiltrados[k]=numerosAleatoriosAux[k];
                 }
             }
             intervalo=intervalo+intervalo;
         }
         //termina generacion y filtrado de numeros aleatorios
     }
-    
-    public int obtenerIntervaloFO(){
-        GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
-        int [] coeficientesFO=gfo.coeficientesTOArray(rp.getFo());
-        mn=new ManejoNumeros();
-        return mn.maximo(coeficientesFO);
-    }
-    public int obtenerIntervaloParcial(int intervalo,int intervaloFO,int divisor){
-        return intervalo+(intervaloFO/divisor);
-    }
     public int [][] generarNumerosAleatorios(int cantidadNoVariables,int cantidadNumeros,int intervalo){//regresar arreglo
+        System.out.println("...el intervalo recibido es "+intervalo);
         int[ ][ ] numerosAleatorios = new  int[cantidadNumeros][cantidadNoVariables];
         int i,j=0;
-
+        System.out.println("///Generar no aleatorios//");
         for(i=0;i<cantidadNumeros;i++){//se llena altura
             for(j=0;j<cantidadNoVariables;j++){//se llena ancho
                 numerosAleatorios[i][j]=ThreadLocalRandom.current().nextInt(0, intervalo);
+                System.out.print(numerosAleatorios[i][j]+"  ");
             }
         }
+        System.out.println("/////////////////////////////////////////");
+        //prueba
+        
         return numerosAleatorios;
     }
     public boolean evaluarRestriccion(Restriccion restriccion,int [] numerosAleatorios){
@@ -70,14 +70,18 @@ public class ResolvedorProblema {
         int noVariables=restriccion.getNoVariables();
         int [] coeficientesRestriccion = gr.coeficientesTOArray(restriccion);
         String [] signosRestriccion =gr.signosToArray(restriccion);
+        //System.out.println("...tamaño de signos resriccion es :"+ signosRestriccion.length);
         if(!(coeficientesRestriccion.length==numerosAleatorios.length)){
             System.out.println("Algo anda mal en el evaluo de restriccion");
             return false;
         }
         int operacionIzquierda=0;// primero se tiene un 0 a ese cero se le suma el primer producto de i's
         for(int i=0;i<noVariables;i++){
+            System.out.println("...coeficiente :"+i+"es: "+coeficientesRestriccion[i]);
+            System.out.println("...noAle :"+i+"es: "+numerosAleatorios[i]);
             int producto=coeficientesRestriccion[i]*numerosAleatorios[i];
             operacionIzquierda=sumadorTerminos(operacionIzquierda,producto,signosRestriccion[i]);//multiplicacion de terminos pos i 
+            System.out.println("...operacion Izquiera: "+operacionIzquierda);
         }
         //aqui ya se tiene la operacion izquierda (x) osea x><=u
         switch(restriccion.getDesigualdad()){

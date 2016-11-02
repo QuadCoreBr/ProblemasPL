@@ -2,23 +2,15 @@
 package plsolver.system;
 
 public class ManejoNumeros {
-    public int maximo(int t[], int pos){
-        int res;
-        if(pos == t.length - 1){
-            res = t[pos];
-        }
-        else{
-            int k = maximo(t, pos + 1);
-            if (t[pos] > k){
-                res = t[pos];
+    static float calculaMaximo(int valores[]) {
+        float maximo = 0;
+        int indice;
+        
+        for (indice = 0;indice < valores.length; indice++) {
+            if(valores[indice]>maximo) {
+                maximo = valores[indice];
             }
-            else{
-                res = k;
-            }
-        }
-        return res;
-    }
-    public int maximo(int t[]){
-        return maximo(t, 0);
+        }        
+        return maximo;
     }
 }

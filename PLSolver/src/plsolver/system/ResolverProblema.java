@@ -104,6 +104,7 @@ public class ResolverProblema {
         this.r5 = r5;
     }
     public Restriccion [] getArregloRestricciones(ResolverProblema rp){
+        System.out.println("...no restricciones getArregores es "+rp.getNoRestricciones());
         Restriccion[ ]   restricciones = new  Restriccion[rp.getNoRestricciones()];
         switch(rp.getNoRestricciones()){
             case 1:
