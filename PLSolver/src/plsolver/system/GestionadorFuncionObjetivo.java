@@ -114,6 +114,28 @@ public class GestionadorFuncionObjetivo {
         }
         return coeficientesArray;
     }
+    public String[] variablesTOArray(FuncionObjetivo fo){
+        int noVariables = fo.getNoVariables();
+        String[ ]   variablesArray = new  String[noVariables];
+        switch(noVariables){
+            case 2:
+                variablesArray[0]=fo.getV1();
+                variablesArray[1]=fo.getV2();
+            break;
+            case 3:
+                variablesArray[0]=fo.getV1();
+                variablesArray[1]=fo.getV2();
+                variablesArray[2]=fo.getV3();
+            break;
+            case 4:
+                variablesArray[0]=fo.getV1();
+                variablesArray[1]=fo.getV2();
+                variablesArray[2]=fo.getV3();
+                variablesArray[3]=fo.getV4();
+            break;
+        }
+        return variablesArray;
+    }
     public static boolean isNumeric(String str) {
         return (str.matches("[+-]?\\d*(\\.\\d+)?") && str.equals("")==false);
     }

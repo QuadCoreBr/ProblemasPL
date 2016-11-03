@@ -87,10 +87,17 @@ public class WelcomePanel extends javax.swing.JPanel {
         resttriction5Button = new javax.swing.JButton();
         resultsPanelContainer = new javax.swing.JPanel();
         resultsPanelTittle = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         resultsPanel = new javax.swing.JPanel();
+        resultsTableContainer = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        resultsTableScroll = new javax.swing.JScrollPane();
+        resultsTable = new javax.swing.JTable();
 
         setMaximumSize(new java.awt.Dimension(810, 410));
         setMinimumSize(new java.awt.Dimension(810, 410));
+        setPreferredSize(new java.awt.Dimension(810, 410));
         setLayout(new java.awt.CardLayout());
 
         welcomePanelContainer.setLayout(new java.awt.CardLayout());
@@ -116,9 +123,9 @@ public class WelcomePanel extends javax.swing.JPanel {
         welcomePanelLayout.setVerticalGroup(
             welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(welcomePanelLayout.createSequentialGroup()
-                .addGap(0, 1, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(welcomeBannerIcon)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         welcomePanelContainer.add(welcomePanel, "welcomePanel");
@@ -472,15 +479,25 @@ public class WelcomePanel extends javax.swing.JPanel {
         resultsPanelTittle.setMaximumSize(new java.awt.Dimension(810, 80));
         resultsPanelTittle.setMinimumSize(new java.awt.Dimension(810, 80));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Resultados");
+
         javax.swing.GroupLayout resultsPanelTittleLayout = new javax.swing.GroupLayout(resultsPanelTittle);
         resultsPanelTittle.setLayout(resultsPanelTittleLayout);
         resultsPanelTittleLayout.setHorizontalGroup(
             resultsPanelTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(resultsPanelTittleLayout.createSequentialGroup()
+                .addGap(339, 339, 339)
+                .addComponent(jLabel1)
+                .addContainerGap(340, Short.MAX_VALUE))
         );
         resultsPanelTittleLayout.setVerticalGroup(
             resultsPanelTittleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resultsPanelTittleLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(24, 24, 24))
         );
 
         resultsPanelContainer.add(resultsPanelTittle, java.awt.BorderLayout.PAGE_START);
@@ -488,17 +505,58 @@ public class WelcomePanel extends javax.swing.JPanel {
         resultsPanel.setBackground(new java.awt.Color(255, 255, 255));
         resultsPanel.setMaximumSize(new java.awt.Dimension(810, 332));
         resultsPanel.setMinimumSize(new java.awt.Dimension(810, 332));
+        resultsPanel.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout resultsPanelLayout = new javax.swing.GroupLayout(resultsPanel);
-        resultsPanel.setLayout(resultsPanelLayout);
-        resultsPanelLayout.setHorizontalGroup(
-            resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        resultsTableContainer.setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 810, Short.MAX_VALUE)
         );
-        resultsPanelLayout.setVerticalGroup(
-            resultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
         );
+
+        resultsTableContainer.add(jPanel1, java.awt.BorderLayout.NORTH);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        resultsTableScroll.setBackground(new java.awt.Color(255, 255, 255));
+        resultsTableScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        resultsTable.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        resultsTable.setToolTipText("");
+        resultsTableScroll.setViewportView(resultsTable);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(resultsTableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(resultsTableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        resultsTableContainer.add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        resultsPanel.add(resultsTableContainer, java.awt.BorderLayout.CENTER);
 
         resultsPanelContainer.add(resultsPanel, java.awt.BorderLayout.CENTER);
 
@@ -514,7 +572,10 @@ public class WelcomePanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel fieldsRequerimentPanel;
+    public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel7;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel2;
     public javax.swing.JLabel maxButton;
     public javax.swing.JLabel minButton;
     public javax.swing.JTextField objectiveFunctionFiled;
@@ -554,6 +615,9 @@ public class WelcomePanel extends javax.swing.JPanel {
     public javax.swing.JPanel resultsPanel;
     public javax.swing.JPanel resultsPanelContainer;
     public javax.swing.JPanel resultsPanelTittle;
+    public javax.swing.JTable resultsTable;
+    public javax.swing.JPanel resultsTableContainer;
+    public javax.swing.JScrollPane resultsTableScroll;
     public javax.swing.JButton verifyObjectiveFunction;
     public javax.swing.JLabel welcomeBannerIcon;
     public javax.swing.JPanel welcomePanel;

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import plsolver.system.FuncionObjetivo;
 import plsolver.system.GestionadorFuncionObjetivo;
 import plsolver.system.GestionadorRestriccion;
@@ -101,6 +102,7 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
     public void mouseClicked(MouseEvent e) {
         CardLayout welcomeLayout = (CardLayout) panel.welcomePanelContainer.getLayout();
         int noIteraciones;
+        GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
         switch(e.getComponent().getName()){
             case "welcomeBannerIcon":
                 welcomeLayout.show(panel.welcomePanelContainer, "fieldsRequerimentPanel");
@@ -110,6 +112,18 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
                 System.out.println("seran"+noIteraciones+ " iteraciones");
                 welcomeLayout.show(panel.welcomePanelContainer, "resultsPanelContainer");
                 rop=new ResolvedorProblema(rp,"maximizar",noIteraciones);//recordar que rp ya esta creado y lleno
+                String[][] salida=rop.getSalida();
+                DefaultTableModel modelo=new DefaultTableModel();
+                panel.resultsTable.setModel(modelo);
+                modelo.addColumn("Iteración");
+                modelo.addColumn("Z");
+                String[] variablesFOArray=gfo.variablesTOArray(rp.getFo());
+                for(int i=0;i<rp.getFo().getNoVariables();i++){
+                    modelo.addColumn((variablesFOArray[i]).toUpperCase());
+                }
+                for(int i=0;i<noIteraciones;i++){
+                    modelo.addRow(salida[i]);
+                }
             break;
             case "mixButton":
                 noIteraciones = Integer.parseInt(JOptionPane.showInputDialog("Numero de iteraciones"));

@@ -9,6 +9,7 @@ public class ResolvedorProblema {
     private ManejoNumeros mn;
     private final int noIteraciones;
     private final int noAleatoriosIteracion=10;
+    private String [][] salida;
 
     public ResolvedorProblema(ResolverProblema rp, String accion,int noIteraciones) {
         this.rp = rp;
@@ -16,32 +17,36 @@ public class ResolvedorProblema {
         this.noIteraciones=noIteraciones;
         switch(accion){
             case "maximizar":
-                maximizar();
+                this.salida=maximizar();
             break;
             case "minimizar":
-                //minimizar();
+                //this.salida=minimizar();
             break;
         }
     }
-    public void maximizar(){
+    public String[][] maximizar(){
+        String[][] salida=new String[noIteraciones][rp.getFo().getNoVariables()];
         for(int z=0;z<noIteraciones;z++){
             Iteracion i=iterar();
-            System.out.println("en la iteracion :"+z+"Z es:"+i.getZ());
+            System.out.println("...en la iteracion :"+z+"Z es:"+i.getZ());
             int [][] combinacionMaximizadora=i.getValorVariables();
             for(int k=0;k<combinacionMaximizadora.length;k++){
-                System.out.println("la combinacion maximizadora es :");
-                for(int l=0;l<i.getFo().getNoVariables();l++){
-                    System.out.print(combinacionMaximizadora[k][l]+"  ");
+                salida[k][0]=Integer.toString(k);
+                salida[k][1]=Integer.toString(i.getZ());
+                System.out.println("...la combinacion maximizadora es :");
+                for(int l=2;l<i.getFo().getNoVariables();l++){
+                    salida[k][l]=Integer.toString(combinacionMaximizadora[k][l-2]);
+                    System.out.print(combinacionMaximizadora[k][l-1]+"  ");
                 }
                 System.out.println("");
             }
         }
+        return salida;
     }
     public Iteracion iterar(){
         Iteracion i=new Iteracion();
         maximizarZ(i);
         return i;
-        //mostrar  valor variables y en Z
     }
     public void maximizarZ(Iteracion i){
         int cantidadNoVariables=rp.getFo().getNoVariables();
@@ -49,14 +54,6 @@ public class ResolvedorProblema {
         int[ ][ ] numerosAleatoriosFiltrados =this.generarFiltrarNoAleatorios(cantidadNumeros, cantidadNoVariables);
         int [][] combinacionMaximizadora=new int[1][cantidadNoVariables];
         int maximoZ=0;
-        /*for(int k=0;k<numerosAleatoriosFiltrados.length;k++){
-            for(int l=0;l<cantidadNoVariables;l++){
-                if(!(numerosAleatoriosFiltrados[k][l]==0)){
-                    System.out.print(numerosAleatoriosFiltrados[k][l]+" ");
-                }
-            }
-            System.out.println("//");
-        }*/
         for(int k=0;k<numerosAleatoriosFiltrados.length;k++){
             int auxEvaluacion=evaluarFuncionObjetivo(rp.getFo(),numerosAleatoriosFiltrados[k]);
             if(auxEvaluacion>maximoZ){
@@ -205,5 +202,14 @@ public class ResolvedorProblema {
         }
         return numerosAleatoriosFiltrados;
     }
+
+    public String[][] getSalida() {
+        return salida;
+    }
+
+    public void setSalida(String[][] salida) {
+        this.salida = salida;
+    }
+    
 }
 
