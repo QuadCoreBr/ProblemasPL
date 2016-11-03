@@ -25,21 +25,20 @@ public class ResolvedorProblema {
         }
     }
     public String[][] maximizar(){
-        String[][] salida=new String[noIteraciones][rp.getFo().getNoVariables()];
+        String[][] salida=new String[noIteraciones][rp.getFo().getNoVariables()+2];
         for(int z=0;z<noIteraciones;z++){
             Iteracion i=iterar();
             System.out.println("...en la iteracion :"+z+"Z es:"+i.getZ());
-            int [][] combinacionMaximizadora=i.getValorVariables();
-            for(int k=0;k<combinacionMaximizadora.length;k++){
-                salida[k][0]=Integer.toString(k);
-                salida[k][1]=Integer.toString(i.getZ());
+            int [][] combinacionMaximizadora=i.getValorVariables();//solo una combinacion
+            System.out.println("tamaño de comb max es" +combinacionMaximizadora.length);
+                salida[z][0]=Integer.toString(z);
+                salida[z][1]=Integer.toString(i.getZ());
                 System.out.println("...la combinacion maximizadora es :");
-                for(int l=2;l<i.getFo().getNoVariables();l++){
-                    salida[k][l]=Integer.toString(combinacionMaximizadora[k][l-2]);
-                    System.out.print(combinacionMaximizadora[k][l-1]+"  ");
-                }
-                System.out.println("");
+            for(int l=2;l<(i.getFo().getNoVariables())+2;l++){
+                salida[z][l]=Integer.toString(combinacionMaximizadora[0][l-2]);
+                System.out.print(combinacionMaximizadora[0][l-2]+"  ");
             }
+            System.out.println("");
         }
         return salida;
     }

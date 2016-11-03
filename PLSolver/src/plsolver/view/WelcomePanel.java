@@ -91,6 +91,7 @@ public class WelcomePanel extends javax.swing.JPanel {
         resultsPanel = new javax.swing.JPanel();
         resultsTableContainer = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        resultsLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         resultsTableScroll = new javax.swing.JScrollPane();
         resultsTable = new javax.swing.JTable();
@@ -507,30 +508,49 @@ public class WelcomePanel extends javax.swing.JPanel {
         resultsPanel.setMinimumSize(new java.awt.Dimension(810, 332));
         resultsPanel.setLayout(new java.awt.BorderLayout());
 
+        resultsTableContainer.setMaximumSize(new java.awt.Dimension(810, 330));
+        resultsTableContainer.setMinimumSize(new java.awt.Dimension(810, 330));
         resultsTableContainer.setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        resultsLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(resultsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(resultsLabel)
+                .addGap(20, 20, 20))
         );
 
         resultsTableContainer.add(jPanel1, java.awt.BorderLayout.NORTH);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setMaximumSize(new java.awt.Dimension(810, 250));
+        jPanel2.setMinimumSize(new java.awt.Dimension(810, 250));
+        jPanel2.setPreferredSize(new java.awt.Dimension(810, 250));
 
         resultsTableScroll.setBackground(new java.awt.Color(255, 255, 255));
         resultsTableScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        resultsTableScroll.setMaximumSize(new java.awt.Dimension(810, 250));
+        resultsTableScroll.setMinimumSize(new java.awt.Dimension(810, 250));
+        resultsTableScroll.setPreferredSize(new java.awt.Dimension(810, 250));
 
         resultsTable.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         resultsTable.setToolTipText("");
+        resultsTable.setMaximumSize(new java.awt.Dimension(810, 250));
+        resultsTable.setMinimumSize(new java.awt.Dimension(810, 250));
+        resultsTable.setPreferredSize(new java.awt.Dimension(810, 250));
         resultsTableScroll.setViewportView(resultsTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -546,11 +566,11 @@ public class WelcomePanel extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 286, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(resultsTableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultsTableScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -612,6 +632,7 @@ public class WelcomePanel extends javax.swing.JPanel {
     public javax.swing.JButton resttriction3Button;
     public javax.swing.JButton resttriction4Button;
     public javax.swing.JButton resttriction5Button;
+    public javax.swing.JLabel resultsLabel;
     public javax.swing.JPanel resultsPanel;
     public javax.swing.JPanel resultsPanelContainer;
     public javax.swing.JPanel resultsPanelTittle;
