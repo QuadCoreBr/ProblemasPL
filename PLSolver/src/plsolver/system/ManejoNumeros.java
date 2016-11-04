@@ -34,4 +34,25 @@ public class ManejoNumeros {
         }
         return salidaMaxima;
     }
+    public static int[][] calculaMinimoSalida(String [][] salida){
+        //salida.l =filas
+        //salida[].l = columnas
+        int[][] salidaMinima=new int[1][salida[0].length+2];
+        int iteracion=0;
+        int zmin=Integer.MAX_VALUE;
+        for(int z=0;z<salida.length;z++){
+            if(Integer.valueOf(salida[z][1])<zmin){
+                zmin=Integer.valueOf(salida[z][1]);
+                iteracion=z;
+                System.out.print("zmax ahora es...:"+zmin);
+                System.out.println(" en la iteracion...:"+iteracion);
+            }
+        }
+        salidaMinima[0][0]=iteracion;
+        salidaMinima[0][1]=zmin;
+        for(int i=2;i<salida[0].length;i++){
+            salidaMinima[0][i]=Integer.valueOf(salida[iteracion][i]);
+        }
+        return salidaMinima;
+    }
 }
