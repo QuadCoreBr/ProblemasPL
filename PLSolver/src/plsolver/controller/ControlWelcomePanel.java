@@ -104,6 +104,10 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
         CardLayout welcomeLayout = (CardLayout) panel.welcomePanelContainer.getLayout();
         int noIteraciones;
         GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
+        String[][] salida;
+        DefaultTableModel modelo=new DefaultTableModel();
+        String[] variablesFOArray;
+        String resultado;
         switch(e.getComponent().getName()){
             case "welcomeBannerIcon":
                 welcomeLayout.show(panel.welcomePanelContainer, "fieldsRequerimentPanel");
@@ -113,21 +117,19 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
                 System.out.println("seran"+noIteraciones+ " iteraciones");
                 welcomeLayout.show(panel.welcomePanelContainer, "resultsPanelContainer");
                 rop=new ResolvedorProblema(rp,"maximizar",noIteraciones);//recordar que rp ya esta creado y lleno
-                String[][] salida=rop.getSalida();
-                DefaultTableModel modelo=new DefaultTableModel();
+                salida=rop.getSalida();
                 panel.resultsTable.setModel(modelo);
                 modelo.addColumn("Iteración");
                 modelo.addColumn("Z");
-                String[] variablesFOArray=gfo.variablesTOArray(rp.getFo());
+                variablesFOArray=gfo.variablesTOArray(rp.getFo());
                 for(int i=0;i<rp.getFo().getNoVariables();i++){
                     modelo.addColumn((variablesFOArray[i]).toUpperCase());
                 }
                 for(int i=0;i<noIteraciones;i++){
-                    System.out.println("columna" +i);
                     modelo.addRow(salida[i]);
                 }
-                String resultado;
-                int [][] salidaMaxima=ManejoNumeros.calculaMaximoSalida(salida);
+                int [][] salidaMaxima;
+                salidaMaxima=ManejoNumeros.calculaMaximoSalida(salida);
                 resultado="La maximización Z="+salidaMaxima[0][1]+" es posible con : ";
                 for(int i=0;i<rp.getFo().getNoVariables();i++){
                     resultado=resultado+((variablesFOArray[i]).toUpperCase())+"="+salidaMaxima[0][i+2]+" ";
@@ -139,6 +141,26 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
                 noIteraciones = Integer.parseInt(JOptionPane.showInputDialog("Numero de iteraciones"));
                 welcomeLayout.show(panel.welcomePanelContainer, "resultsPanelContainer");
                 rop=new ResolvedorProblema(rp,"minimizar",noIteraciones);//recordar que rp ya esta creado y lleno
+                salida=rop.getSalida();
+                panel.resultsTable.setModel(modelo);
+                modelo.addColumn("Iteración");
+                modelo.addColumn("Z");
+                variablesFOArray=gfo.variablesTOArray(rp.getFo());
+                for(int i=0;i<rp.getFo().getNoVariables();i++){
+                    modelo.addColumn((variablesFOArray[i]).toUpperCase());
+                }
+                for(int i=0;i<noIteraciones;i++){
+                    System.out.println("columna" +i);
+                    modelo.addRow(salida[i]);
+                }
+                int [][] salidaMinima;
+                salidaMinima=ManejoNumeros.calculaMinimoSalida(salida);
+                resultado="La minimización Z="+salidaMinima[0][1]+" es posible con : ";
+                for(int i=0;i<rp.getFo().getNoVariables();i++){
+                    resultado=resultado+((variablesFOArray[i]).toUpperCase())+"="+salidaMinima[0][i+2]+" ";
+                }
+                resultado=resultado+"en la iteración: "+salidaMinima[0][0];
+                panel.resultsLabel.setText(resultado);
             break;
             default:
             break;

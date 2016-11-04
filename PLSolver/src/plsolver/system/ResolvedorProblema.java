@@ -8,7 +8,7 @@ public class ResolvedorProblema {
     private final String accion;
     private ManejoNumeros mn;
     private final int noIteraciones;
-    private final int noAleatoriosIteracion=15;
+    private final int noAleatoriosIteracion=10;
     private String [][] salida;
 
     public ResolvedorProblema(ResolverProblema rp, String accion,int noIteraciones) {
@@ -20,14 +20,14 @@ public class ResolvedorProblema {
                 this.salida=maximizar();
             break;
             case "minimizar":
-                //this.salida=minimizar();
+                this.salida=minimizar();
             break;
         }
     }
     public String[][] maximizar(){
         String[][] salida=new String[noIteraciones][rp.getFo().getNoVariables()+2];
         for(int z=0;z<noIteraciones;z++){
-            Iteracion i=iterar();
+            Iteracion i=iterarMax();
             System.out.println("...en la iteracion :"+z+"Z es:"+i.getZ());
             int [][] combinacionMaximizadora=i.getValorVariables();//solo una combinacion
             System.out.println("...tamaño de comb max es" +combinacionMaximizadora.length);
@@ -42,9 +42,32 @@ public class ResolvedorProblema {
         }
         return salida;
     }
-    public Iteracion iterar(){
+    public String[][] minimizar(){
+        String[][] salida=new String[noIteraciones][rp.getFo().getNoVariables()+2];
+        for(int z=0;z<noIteraciones;z++){
+            Iteracion i=iterarMin();
+            //System.out.println("...en la iteracion :"+z+"Z es:"+i.getZ());
+            int [][] combinacionMinimizadora=i.getValorVariables();//solo una combinacion
+            //System.out.println("...tamaño de comb min es" +combinacionMinimizadora.length);
+                salida[z][0]=Integer.toString(z);
+                salida[z][1]=Integer.toString(i.getZ());
+                //System.out.print("...la combinacion minimizadora es :");
+            for(int l=2;l<(i.getFo().getNoVariables())+2;l++){
+                salida[z][l]=Integer.toString(combinacionMinimizadora[0][l-2]);
+                //System.out.print(combinacionMinimizadora[0][l-2]+"  ");
+            }
+            //System.out.println("");
+        }
+        return salida;
+    }
+    public Iteracion iterarMax(){
         Iteracion i=new Iteracion();
         maximizarZ(i);
+        return i;
+    }
+    public Iteracion iterarMin(){
+        Iteracion i=new Iteracion();
+        minimizarZ(i);
         return i;
     }
     public void maximizarZ(Iteracion i){
@@ -62,6 +85,28 @@ public class ResolvedorProblema {
         }
         i.setValorVariables(combinacionMaximizadora);
         i.setZ(maximoZ);
+        i.setFo(rp.getFo());
+    }
+    public void minimizarZ(Iteracion i){
+        int cantidadNoVariables=rp.getFo().getNoVariables();
+        int cantidadNumeros=noAleatoriosIteracion;
+        int[ ][ ] numerosAleatoriosFiltrados =this.generarFiltrarNoAleatorios(cantidadNumeros, cantidadNoVariables);
+        int [][] combinacionMinimizadora=new int[1][cantidadNoVariables];
+        int minimoZ=Integer.MAX_VALUE;
+        for(int k=0;k<numerosAleatoriosFiltrados.length;k++){
+            int auxEvaluacion=evaluarFuncionObjetivo(rp.getFo(),numerosAleatoriosFiltrados[k]);
+            for(int a=0;a<cantidadNoVariables;a++){
+                if(numerosAleatoriosFiltrados[k][a]!=0){
+                    if(auxEvaluacion<minimoZ){
+                        minimoZ=auxEvaluacion;
+                        combinacionMinimizadora[0]=numerosAleatoriosFiltrados[k];
+                    }
+                }
+            }
+        }
+
+        i.setValorVariables(combinacionMinimizadora);
+        i.setZ(minimoZ);
         i.setFo(rp.getFo());
     }
     public int evaluarFuncionObjetivo(FuncionObjetivo fo,int []combinacionPosible){
@@ -84,7 +129,7 @@ public class ResolvedorProblema {
         //System.out.println("...///Generar no aleatorios//");
         for(i=0;i<cantidadNumeros;i++){//se llena altura
             for(j=0;j<cantidadNoVariables;j++){//se llena ancho
-                numerosAleatorios[i][j]=ThreadLocalRandom.current().nextInt(0, intervalo);
+                numerosAleatorios[i][j]=ThreadLocalRandom.current().nextInt(0, intervalo+1);
                 //System.out.print(numerosAleatorios[i][j]+"  ");
             }
             //System.out.println(".../////");
@@ -173,7 +218,6 @@ public class ResolvedorProblema {
         int[ ][ ] numerosAleatoriosFiltrados = new  int[cantidadNumeros][cantidadNoVariables];
         Restriccion[] restricciones=rp.getArregloRestricciones(rp);
         int intervalo=0;
-        //intervalo=obtenerIntervaloParcial(intervalo);
         intervalo=obetenerCoeficienteMaxRestricciones(restricciones);
         //necesitamos almacenar en un array los conjuntos de numeros que cumplen las condiciones
         int[ ][ ] numerosAleatoriosAux =generarNumerosAleatorios(cantidadNumeros,cantidadNoVariables,intervalo);
