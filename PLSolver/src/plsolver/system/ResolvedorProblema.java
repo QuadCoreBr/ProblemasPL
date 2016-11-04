@@ -8,7 +8,7 @@ public class ResolvedorProblema {
     private final String accion;
     private ManejoNumeros mn;
     private final int noIteraciones;
-    private final int noAleatoriosIteracion=10;
+    private final int noAleatoriosIteracion=15;
     private String [][] salida;
 
     public ResolvedorProblema(ResolverProblema rp, String accion,int noIteraciones) {
@@ -30,10 +30,10 @@ public class ResolvedorProblema {
             Iteracion i=iterar();
             System.out.println("...en la iteracion :"+z+"Z es:"+i.getZ());
             int [][] combinacionMaximizadora=i.getValorVariables();//solo una combinacion
-            System.out.println("tamaño de comb max es" +combinacionMaximizadora.length);
+            System.out.println("...tamaño de comb max es" +combinacionMaximizadora.length);
                 salida[z][0]=Integer.toString(z);
                 salida[z][1]=Integer.toString(i.getZ());
-                System.out.println("...la combinacion maximizadora es :");
+                System.out.print("...la combinacion maximizadora es :");
             for(int l=2;l<(i.getFo().getNoVariables())+2;l++){
                 salida[z][l]=Integer.toString(combinacionMaximizadora[0][l-2]);
                 System.out.print(combinacionMaximizadora[0][l-2]+"  ");
@@ -68,28 +68,28 @@ public class ResolvedorProblema {
         int z=0;
         GestionadorFuncionObjetivo gfo=new GestionadorFuncionObjetivo();
         int [] coeficientesFO = gfo.coeficientesTOArray(fo);
-        System.out.println("...Evaluar z ///////////////////////");
+        //System.out.println("...Evaluar z ///////////////////////");
         for(int i=0;i<coeficientesFO.length;i++){
-            System.out.println("...numero ale "+i+" es: " +combinacionPosible[i]+"y coeficiente " +i+"es : "+coeficientesFO[i]);
-            System.out.println(combinacionPosible[i]+"*"+coeficientesFO[i]);
+            //System.out.println("...numero ale "+i+" es: " +combinacionPosible[i]+"y coeficiente " +i+"es : "+coeficientesFO[i]);
+            //System.out.println(combinacionPosible[i]+"*"+coeficientesFO[i]);
             z=z+(combinacionPosible[i]*coeficientesFO[i]);
         }
-        System.out.println("...////////////z es:" +z);
+        //System.out.println("...////////////z es:" +z);
         return z;
     }
     public int [][] generarNumerosAleatorios(int cantidadNumeros,int cantidadNoVariables,int intervalo){//regresar arreglo
-        System.out.println("...el intervalo recibido es "+intervalo);
+        //System.out.println("...el intervalo recibido es "+intervalo);
         int[ ][ ] numerosAleatorios = new  int[cantidadNumeros][cantidadNoVariables];
         int i,j=0;
-        System.out.println("...///Generar no aleatorios//");
+        //System.out.println("...///Generar no aleatorios//");
         for(i=0;i<cantidadNumeros;i++){//se llena altura
             for(j=0;j<cantidadNoVariables;j++){//se llena ancho
                 numerosAleatorios[i][j]=ThreadLocalRandom.current().nextInt(0, intervalo);
-                System.out.print(numerosAleatorios[i][j]+"  ");
+                //System.out.print(numerosAleatorios[i][j]+"  ");
             }
-            System.out.println(".../////");
+            //System.out.println(".../////");
         }
-        System.out.println(".../////////////////////////////////////////");
+        //System.out.println(".../////////////////////////////////////////");
         return numerosAleatorios;
     }
     public boolean evaluarRestriccion(Restriccion restriccion,int [] numerosAleatorios){
@@ -111,35 +111,35 @@ public class ResolvedorProblema {
         //aqui ya se tiene la operacion izquierda (x) osea x><=u
         switch(restriccion.getDesigualdad()){
             case ">=":
-                System.out.println(operacionIzquierda+">="+restriccion.getCr());
+                //System.out.println(operacionIzquierda+">="+restriccion.getCr());
                 if(operacionIzquierda>=restriccion.getCr()){
                     return true;
                 }else{
                     return false;
                 }
             case "<=":
-                System.out.println(operacionIzquierda+"<="+restriccion.getCr());
+                //System.out.println(operacionIzquierda+"<="+restriccion.getCr());
                 if(operacionIzquierda<=restriccion.getCr()){
                     return true;
                 }else{
                     return false;
                 }
             case "=":
-                System.out.println(operacionIzquierda+"="+restriccion.getCr());
+                //System.out.println(operacionIzquierda+"="+restriccion.getCr());
                 if(operacionIzquierda==restriccion.getCr()){
                     return true;
                 }else{
                     return false;
                 }
             case ">":
-                System.out.println(operacionIzquierda+">"+restriccion.getCr());
+                //System.out.println(operacionIzquierda+">"+restriccion.getCr());
                 if(operacionIzquierda>restriccion.getCr()){
                     return true;
                 }else{
                     return false;
                 }
             case "<":
-                System.out.println(operacionIzquierda+"<"+restriccion.getCr());
+                //System.out.println(operacionIzquierda+"<"+restriccion.getCr());
                 if(operacionIzquierda<restriccion.getCr()){
                     return true;
                 }else{
@@ -180,21 +180,21 @@ public class ResolvedorProblema {
         for(int k=0;k<cantidadNumeros;k++){//recorremos los numeros generados
             int auxValidadorRestriccion=0;
             for(int z=0;z<rp.getNoRestricciones();z++){//recorriendo restricciones, restriccion por restriccion
-                System.out.println("restriccion "+z);
+                //System.out.println("...restriccion "+z);
                 //2 de esos numeros escoger cuales cumplen 
                 if(evaluarRestriccion(restricciones[z],numerosAleatoriosAux[k])){//al algoritmo que evalua los numeros se le envia toda la columna
-                    System.out.println("...cumplio");
+                    //System.out.println("...cumplio");
                     auxValidadorRestriccion++;
                 }else{
-                    System.out.println("...no complio");
+                    //System.out.println("...no complio");
                 }
             }
             if(auxValidadorRestriccion==rp.getNoRestricciones()){
-                    System.out.println("...cumplio todas las restricciones");
+                    //System.out.println("...cumplio todas las restricciones");
                     numerosAleatoriosFiltrados[k]=numerosAleatoriosAux[k];
                     auxValidadorRestriccion=0;
             }else{
-                System.out.println("...no cumplio todas las restricciones");
+                //System.out.println("...no cumplio todas las restricciones");
                 auxValidadorRestriccion=0;
             }
 

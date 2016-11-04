@@ -542,15 +542,13 @@ public class WelcomePanel extends javax.swing.JPanel {
 
         resultsTableScroll.setBackground(new java.awt.Color(255, 255, 255));
         resultsTableScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        resultsTableScroll.setHorizontalScrollBar(null);
         resultsTableScroll.setMaximumSize(new java.awt.Dimension(810, 250));
         resultsTableScroll.setMinimumSize(new java.awt.Dimension(810, 250));
         resultsTableScroll.setPreferredSize(new java.awt.Dimension(810, 250));
 
         resultsTable.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         resultsTable.setToolTipText("");
-        resultsTable.setMaximumSize(new java.awt.Dimension(810, 250));
-        resultsTable.setMinimumSize(new java.awt.Dimension(810, 250));
-        resultsTable.setPreferredSize(new java.awt.Dimension(810, 250));
         resultsTableScroll.setViewportView(resultsTable);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

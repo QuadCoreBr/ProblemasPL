@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import plsolver.system.FuncionObjetivo;
 import plsolver.system.GestionadorFuncionObjetivo;
 import plsolver.system.GestionadorRestriccion;
+import plsolver.system.ManejoNumeros;
 import plsolver.system.ResolvedorProblema;
 import plsolver.system.ResolverProblema;
 import plsolver.system.Restriccion;
@@ -122,8 +123,17 @@ public class ControlWelcomePanel implements ActionListener,MouseListener{
                     modelo.addColumn((variablesFOArray[i]).toUpperCase());
                 }
                 for(int i=0;i<noIteraciones;i++){
+                    System.out.println("columna" +i);
                     modelo.addRow(salida[i]);
                 }
+                String resultado;
+                int [][] salidaMaxima=ManejoNumeros.calculaMaximoSalida(salida);
+                resultado="La maximización Z="+salidaMaxima[0][1]+" es posible con : ";
+                for(int i=0;i<rp.getFo().getNoVariables();i++){
+                    resultado=resultado+((variablesFOArray[i]).toUpperCase())+"="+salidaMaxima[0][i+2]+" ";
+                }
+                resultado=resultado+"en la iteración: "+salidaMaxima[0][0];
+                panel.resultsLabel.setText(resultado);
             break;
             case "mixButton":
                 noIteraciones = Integer.parseInt(JOptionPane.showInputDialog("Numero de iteraciones"));
